@@ -12,8 +12,7 @@ public class Conexao {
 	static String drive;
 	static String login; 
 	static String pass;
-	static FirebirdConnection connection;
-
+	
 
 	/**
 	 * @param args
@@ -26,7 +25,7 @@ public class Conexao {
 		drive = "org.firebirdsql.jdbc.FBDriver";
 		login = "SYSDBA";
 		pass = "masterkey";
-		connection = null;
+		
 	}
 	
 	public Conexao(){
@@ -39,24 +38,16 @@ public class Conexao {
 		}
 
 
-
-		try {
-
-			connection = (FBConnection) DriverManager.getConnection( url, login, pass);
-
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-
-
-	}
+}
 
 	public FirebirdConnection leituraInicial(){
-
+		
+		FirebirdConnection connection = null;
 
 		try {
+			
+			
+			connection = (FBConnection) DriverManager.getConnection( url, login, pass);
 			
 			connection.setAutoCommit(false);
 
@@ -72,7 +63,7 @@ public class Conexao {
 			
 			System.out.println("Ok");
 
-
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,7 +77,12 @@ public class Conexao {
 	public FirebirdConnection selecionandoAssento(){
 
 
+		FirebirdConnection connection = null;
+		
 		try {
+			
+			
+			connection = (FBConnection) DriverManager.getConnection( url, login, pass);
 			
 			connection.setAutoCommit(false);
 
