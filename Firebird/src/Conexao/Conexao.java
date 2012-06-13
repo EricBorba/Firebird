@@ -1,3 +1,4 @@
+package Conexao;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -106,7 +107,7 @@ public class Conexao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("ja esta selecionado");
+			
 		}
 
 		return connection;
