@@ -19,7 +19,7 @@ public class Controle {
 
 
 		//conexao.setAutoCommit(false);
-		
+
 		// Esse lock eh justificado apenas pra garantir uma unica instancia do sistema logada ( nao ter 2 sistemas logados com o mesmo usuario )
 		PreparedStatement  statement = conexao.prepareStatement("SELECT p.cpf FROM PASSAGEIRO p WHERE p.cpf = ? AND p.senha = ? WITH LOCK");
 		statement.setInt(1, cpf);
@@ -62,33 +62,51 @@ public class Controle {
 	}
 
 	public ArrayList<String> lerDestinos(FirebirdConnection conexao) throws SQLException{
-		
+
 		ArrayList<String> listaDestinos = new ArrayList<String>();
-		
-		
+
+		conexao.setAutoCommit(true);
 		// A necessidade deste lock eh para nao permitir atualizacao do registro que esta lendo ( leitura suja )
 		PreparedStatement  statement = conexao.prepareStatement("SELECT d.nome FROM DESTINOS d WITH LOCK");
-		
+
 		ResultSet resultado = statement.executeQuery();
-		
+
 		while(resultado.next()){
-			
+
 			listaDestinos.add(resultado.getString(1));
-			
+
 		}
-		
+
 		return listaDestinos;
 
 	}
 
-	public void lerAssentosReservados(){
+	public ArrayList<String> lerAssentosReservados(FirebirdConnection conexao) throws SQLException{
+
+		ArrayList<String> listaAssentosReservados = new ArrayList<String>();
 		
-		
+		conexao.setAutoCommit(true);
+		// A necessidade deste lock eh para nao permitir atualizacao do registro que esta lendo ( leitura suja )
+		PreparedStatement  statement = conexao.prepareStatement("SELECT a.fk_numero FROM RESERVA a WITH LOCK");
+
+		ResultSet resultado = statement.executeQuery();
+
+		while(resultado.next()){
+
+			listaAssentosReservados.add(resultado.getString(1));
+
+		}
+
+		return listaAssentosReservados;
 
 	}
 
-	public void selecionarPoltrona(){
+	public void selecionarPoltrona(FirebirdConnection conexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
 
+		conexao.setAutoCommit(false);
+		
+		PreparedStatement  statement = conexao.prepareStatement("SELECT a.numero FROM ASSENTOS a WITH LOCK");		
+		
 	}
 
 	public void reservarPoltrona(){
