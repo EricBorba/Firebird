@@ -81,14 +81,14 @@ public class Controle {
 
 	}
 
-	public ArrayList<String> lerAssentosReservados(FirebirdConnection conexao) throws SQLException{
+	public ArrayList<String> lerAssentosReservados(FirebirdConnection conexao, String destino) throws SQLException{
 
 		ArrayList<String> listaAssentosReservados = new ArrayList<String>();
 		
 		conexao.setAutoCommit(true);
 		// A necessidade deste lock eh para nao permitir atualizacao do registro que esta lendo ( leitura suja )
-		PreparedStatement  statement = conexao.prepareStatement("SELECT a.fk_numero FROM RESERVA a WITH LOCK");
-
+		PreparedStatement  statement = conexao.prepareStatement("SELECT a.fk_numero FROM RESERVA a WHERE a.destino = ? WITH LOCK");
+		statement.setString(1, destino);
 		ResultSet resultado = statement.executeQuery();
 
 		while(resultado.next()){
@@ -101,17 +101,29 @@ public class Controle {
 
 	}
 
-	public void selecionarPoltrona(FirebirdConnection conexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
+	public FirebirdConnection selecionarPoltrona(FirebirdConnection conexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
 
 		conexao.setAutoCommit(false);
 		
-		PreparedStatement  statement = conexao.prepareStatement("SELECT a.numero FROM ASSENTOS a WITH LOCK");		
+		PreparedStatement  statementReserva = conexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.destino = ? WITH LOCK");		
+		statementReserva.setString(1, numeroPoltrona);
+		statementReserva.setString(2, destino);
+		statementReserva.executeQuery();
+				
+		PreparedStatement statementUpdate = conexao.prepareStatement("UPDATE RESERVA a SET a.fk_cpf = ?");
+		statementUpdate.setInt(1, cpf);
+		statementUpdate.executeUpdate();
+		statementUpdate.close();
+				
+		
+		return conexao;
 		
 	}
 
-	public void reservarPoltrona(){
+	public void reservarPoltrona(FirebirdConnection conexao) throws SQLException{
 
-
+		conexao.commit();
+		
 	}
 
 }
