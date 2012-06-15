@@ -110,6 +110,8 @@ public class Controle {
 		statementReserva.setString(2, destino);
 		statementReserva.executeQuery();
 				
+		//colocar aqui a condicao para executar o passo abaixo apenas se o cpf retornado na query acima for igual ao que representa disponibilidade.
+		
 		PreparedStatement statementUpdate = conexao.prepareStatement("UPDATE RESERVA a SET a.fk_cpf = ?");
 		statementUpdate.setInt(1, cpf);
 		statementUpdate.executeUpdate();
