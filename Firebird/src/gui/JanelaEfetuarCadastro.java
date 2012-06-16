@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -25,6 +26,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 import javax.swing.BoundedRangeModel;
 import javax.swing.BoxLayout;
+
+import org.firebirdsql.jdbc.FirebirdConnection;
+
+import Conexao.Conexao;
+import Conexao.Controle;
 
 
 
@@ -110,7 +116,7 @@ public class JanelaEfetuarCadastro extends JFrame{
 
 				jButton1.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						jButton1ActionPerformed(evt);
+						jButton1ActionPerformed(evt, Integer.parseInt(escreverCpf.getText()), Integer.parseInt(escreverSenha.getText()), escreverEndereco.getText(), escreverNome.getText());
 					}
 
 					
@@ -129,8 +135,19 @@ public class JanelaEfetuarCadastro extends JFrame{
 		
 	}
 	
-	private void jButton1ActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
+	//Realiza o cadastro do Passageiro no BD
+	private void jButton1ActionPerformed(ActionEvent evt, int cpf, int senha, String endereco, String nome) {
+		
+		Conexao conexao = new Conexao();
+		FirebirdConnection conexaoFirebird = conexao.leituraInicial();
+		
+		try {
+			Controle controle = new Controle();
+			controle.cadastrarPassageiro(conexaoFirebird, cpf, nome, endereco, senha);
+		} catch (SQLException e) {
+			// Erro com relacao ao SQL, exemplo: passageiro ja existente
+			e.printStackTrace();
+		}
 		
 	}
 	

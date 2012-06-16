@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -27,6 +28,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.BoundedRangeModel;
 import javax.swing.BoxLayout;
 
+import org.firebirdsql.jdbc.FirebirdConnection;
+
+import Conexao.Conexao;
+import Conexao.Controle;
+
 
 
 public class JanelaEscolherPassagem extends JFrame{
@@ -35,11 +41,17 @@ public class JanelaEscolherPassagem extends JFrame{
 	JButton jButton1;
 	JButton jButton2;
 	JComboBox jComboBox1;
+	Conexao conexao = null;
+	String destinoSelecionado = null;
+	int cpf;
+	int senha;
 
 
-	public JanelaEscolherPassagem(){
+	public JanelaEscolherPassagem(Conexao conexao, int cpf, int senha){
 	
-	
+		this.conexao = conexao;
+		this.cpf = cpf;
+		this.senha = senha;
 		
 	}
 
@@ -89,7 +101,20 @@ public class JanelaEscolherPassagem extends JFrame{
 		
 		});	
 		
-		this.jComboBox1 = new JComboBox();
+		
+		//Buscando os destinos existentes no BD
+		FirebirdConnection conexaoFirebird = conexao.leituraInicial();
+		Vector<String> destinos = new Vector<String>();
+		
+		try {
+			Controle controle = new Controle();
+			destinos = controle.lerDestinos(conexaoFirebird);
+		} catch (SQLException e) {
+			// Erro com relacao ao SQL
+			e.printStackTrace();
+		}
+		
+		this.jComboBox1 = new JComboBox(destinos);
 		this.jComboBox1.setBounds(40,150, 400, 20);
 		this.jComboBox1.setBackground(Color.white);
 	//	this.jComboBox1.setModel(new DefaultComboBoxModel(buscaArquivo.RetornarTrasacoes(this.rep.getTransacoes())));
@@ -103,18 +128,14 @@ public class JanelaEscolherPassagem extends JFrame{
 	}
 
 	private void jComboBox1ActionPerformed(ActionEvent evt) {
-		JanelaEscolherPoltrona janelaPoltrona = new JanelaEscolherPoltrona();
-		janelaPoltrona.setJanelaInicial();
-		janelaPoltrona.setComponentes();
-		janelaPoltrona.addComponentes();
-		janelaPoltrona.setVisible(true);
-		this.dispose();
+		
+		this.destinoSelecionado = (String) this.jComboBox1.getSelectedItem();
 		
 	}
 	
 	private void jButton1ActionPerformed(ActionEvent evt) {
 	
-		JanelaEscolherPoltrona janela = new JanelaEscolherPoltrona();
+		JanelaEscolherPoltrona janela = new JanelaEscolherPoltrona(this.destinoSelecionado, this.conexao, this.cpf, this.senha);
 		janela.setJanelaInicial();
 		janela.setComponentes();
 		janela.setComponentesAviao();

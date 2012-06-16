@@ -4,8 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import org.firebirdsql.jdbc.FirebirdConnection;
+import org.firebirdsql.jdbc.FirebirdSavepoint;
 
 public class Controle {
 
@@ -61,9 +63,9 @@ public class Controle {
 
 	}
 
-	public ArrayList<String> lerDestinos(FirebirdConnection conexao) throws SQLException{
+	public Vector<String> lerDestinos(FirebirdConnection conexao) throws SQLException{
 
-		ArrayList<String> listaDestinos = new ArrayList<String>();
+		Vector<String> listaDestinos = new Vector<String>();
 
 		conexao.setAutoCommit(true);
 		// A necessidade deste lock eh para nao permitir atualizacao do registro que esta lendo ( leitura suja )
@@ -101,24 +103,33 @@ public class Controle {
 
 	}
 
-	public FirebirdConnection selecionarPoltrona(FirebirdConnection conexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
+	public Boolean selecionarPoltrona(FirebirdConnection conexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
 
 		conexao.setAutoCommit(false);
+		Boolean podeReservar = false;
+		//FirebirdSavepoint pontodeRecuperacao =  conexao.setFirebirdSavepoint();
 		
+				
 		PreparedStatement  statementReserva = conexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.destino = ? WITH LOCK");		
 		statementReserva.setString(1, numeroPoltrona);
 		statementReserva.setString(2, destino);
-		statementReserva.executeQuery();
+		ResultSet resultado = statementReserva.executeQuery();
 				
 		//colocar aqui a condicao para executar o passo abaixo apenas se o cpf retornado na query acima for igual ao que representa disponibilidade.
 		
-		PreparedStatement statementUpdate = conexao.prepareStatement("UPDATE RESERVA a SET a.fk_cpf = ?");
+		
+		
+		PreparedStatement statementUpdate = conexao.prepareStatement("UPDATE RESERVA a SET a.fk_cpf = ? WHERE a.fk_numero = ? AND a.destino = ?");
 		statementUpdate.setInt(1, cpf);
+		statementUpdate.setString(2, numeroPoltrona);
+		statementUpdate.setString(3, destino);
 		statementUpdate.executeUpdate();
 		statementUpdate.close();
+		statementReserva.close();		
 				
 		
-		return conexao;
+		
+		return podeReservar;
 		
 	}
 

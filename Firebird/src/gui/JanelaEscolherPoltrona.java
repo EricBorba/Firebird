@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -25,6 +26,11 @@ import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.BoundedRangeModel;
 import javax.swing.BoxLayout;
+
+import org.firebirdsql.jdbc.FirebirdConnection;
+
+import Conexao.Conexao;
+import Conexao.Controle;
 
 
 
@@ -154,10 +160,18 @@ public class JanelaEscolherPoltrona extends JFrame{
 	JPanel panel;
 
 	JanelaEscolherPassagem janela;
+	String destino;
+	Conexao conexao;
+	FirebirdConnection firebirdConexao;
+	int cpf;
+	int senha;
 
-	public JanelaEscolherPoltrona(){
+	public JanelaEscolherPoltrona(String destino, Conexao conexao, int cpf, int senha){
 
-		
+		this.destino = destino;
+		this.conexao = conexao;
+		this.cpf = cpf;
+		this.senha = senha;
 		
 	}
 
@@ -1521,12 +1535,21 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 	private void jButton1ActionPerformed(ActionEvent evt) {
-		//faz a reserva
+		
+		this.firebirdConexao = conexao.leituraInicial();
+		
+		Controle controle = new Controle();
+		try {
+			controle.reservarPoltrona(firebirdConexao);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
 	private void jButton2ActionPerformed(ActionEvent evt) {
-		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem();
+		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem(this.conexao, this.cpf, this.senha);
 		janelaPassagem.setJanelaInicial();
 		janelaPassagem.setComponentes();
 		janelaPassagem.addComponentes();

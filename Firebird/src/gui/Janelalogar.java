@@ -101,6 +101,7 @@ public class Janelalogar extends JFrame{
 				this.jButton1.setBounds(75, 230, 150, 40);
 
 				jButton1.addActionListener(new java.awt.event.ActionListener() {
+					//Passa os parametros para a funcao que verifica se o usuario existe no BD
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
 						jButton1ActionPerformed(evt, Integer.parseInt(escreverCPF.getText()), Integer.parseInt(escreverSenha.getText()));
 					}
@@ -139,7 +140,7 @@ public class Janelalogar extends JFrame{
 		
 		if(existeCadastro){
 		
-		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem();
+		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem(conexao, cpf, senha);
 		janelaPassagem.setJanelaInicial();
 		janelaPassagem.setComponentes();
 		janelaPassagem.addComponentes();
