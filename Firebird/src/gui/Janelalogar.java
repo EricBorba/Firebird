@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -26,6 +27,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 import javax.swing.BoundedRangeModel;
 import javax.swing.BoxLayout;
+
+import org.firebirdsql.jdbc.FirebirdConnection;
+
+import Conexao.Conexao;
+import Conexao.Controle;
 
 
 
@@ -96,7 +102,7 @@ public class Janelalogar extends JFrame{
 
 				jButton1.addActionListener(new java.awt.event.ActionListener() {
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						jButton1ActionPerformed(evt);
+						jButton1ActionPerformed(evt, Integer.parseInt(escreverCPF.getText()), Integer.parseInt(escreverSenha.getText()));
 					}
 
 					
@@ -115,11 +121,23 @@ public class Janelalogar extends JFrame{
 		
 	}
 	
-	private void jButton1ActionPerformed(ActionEvent evt) {
+	private void jButton1ActionPerformed(ActionEvent evt, int cpf, int senha) {
 		// verifica no banco se existe o usuario se existir acessa sua parte no banco e entra
 		//na janela abaixo
 		
+		Boolean existeCadastro = false;
+		Conexao conexao = new Conexao();
+		FirebirdConnection conexaoFirebird = conexao.leituraInicial();
 		
+		try {
+			Controle controle = new Controle();
+			existeCadastro = controle.logar(conexaoFirebird,cpf,senha);
+		} catch (SQLException e) {
+			// Erro com relacao ao SQL
+			e.printStackTrace();
+		}
+		
+		if(existeCadastro){
 		
 		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem();
 		janelaPassagem.setJanelaInicial();
@@ -127,6 +145,11 @@ public class Janelalogar extends JFrame{
 		janelaPassagem.addComponentes();
 		janelaPassagem.setVisible(true);
 		this.dispose();
+		}else{
+			
+			// Janela dizendo que o usu‡rio n‹o est‡ cadastrado
+			
+		}
 		
 	}
 	

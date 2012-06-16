@@ -14,22 +14,13 @@ public class Conexao {
 	static String pass;
 	
 
-	/**
-	 * @param args
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
-	 */
-	public static void main(String[] args)  {
-
+	public Conexao(){
+		
 		url = "jdbc:firebirdsql:localhost/3050:/Library/Frameworks/Firebird.framework/Flycin.fdb" ;                                                                                                                 
 		drive = "org.firebirdsql.jdbc.FBDriver";
 		login = "SYSDBA";
 		pass = "masterkey";
 		
-	}
-	
-	public Conexao(){
-
 		try {
 			Class.forName(drive);
 			System.out.println("Drive Carregado");
