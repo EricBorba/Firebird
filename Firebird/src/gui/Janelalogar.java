@@ -11,6 +11,7 @@ import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,31 +36,35 @@ import Conexao.Controle;
 
 
 
-public class Janelalogar extends JFrame{
+public class Janelalogar extends JFrame {
 
 	JTextField escreverCPF;
-	JTextField  escreverSenha;
+	JPasswordField escreverSenha;
 	JLabel CPF;
 	JLabel senha;
 	JLabel aviao;
 	JButton jButton1;
 	JButton jButton2;
 	
-	protected MaskFormatter createFormatter(String s) {
-		MaskFormatter formatter = null;
-		try {
-			formatter = new MaskFormatter(s);
-		} catch (java.text.ParseException exc) {
-			System.err.println("Formato errado: " + exc.getMessage());
-			System.exit(-1);
-		}
-		return formatter;
-	}
+	
 
 
 	public Janelalogar(){
 	
 	}
+	
+	
+//	public MaskFormatter createFormatter(String s) {
+//		MaskFormatter formatter = null;
+//		try {
+//			formatter = new MaskFormatter(s);
+//		} catch (java.text.ParseException exc) {
+//			System.err.println("Formato errado: " + exc.getMessage());
+//			System.exit(-1);
+//		}
+//		return formatter;
+//	}
+	
 
 
 	// construindo janela
@@ -80,11 +85,13 @@ public class Janelalogar extends JFrame{
 	// componentes da janela
 	public void setComponentes(){
 		
-				escreverCPF = new javax.swing.JFormattedTextField( createFormatter("###########"));
+				escreverCPF = new JTextField();
+				escreverCPF.setDocument(new RestringeCaracteres("0123456789",11));
+				escreverSenha = new JPasswordField();
+				escreverSenha.setDocument(new RestringeCaracteres("0123456789",8));
+				escreverSenha.setBounds(75, 200, 150, 20);
 				escreverCPF.setBounds(75, 150, 150, 20);
 				
-				escreverSenha = new javax.swing.JFormattedTextField( createFormatter("########"));
-				escreverSenha.setBounds(75, 200, 150, 20);
 				CPF = new JLabel("CPF");		
 				CPF.setBounds(75, 120, 150, 20);
 				CPF.setFont(new Font("Comic Sans MS", 1, 20));
@@ -93,15 +100,14 @@ public class Janelalogar extends JFrame{
 				senha.setBounds(75, 175, 150, 20);
 				senha.setFont(new Font("Comic Sans MS", 1, 20));
 				
-				aviao = new JLabel(new ImageIcon("img/desenhoaviao.png"));		
-				aviao.setBounds(80, 20, 130, 90);
+				aviao = new JLabel(new ImageIcon("Desenhos/desenhoaviao.png"));		
+				aviao.setBounds(80, 20, 130, 77);
 				
 				this.jButton1 = new JButton("ENTRAR");
 				this.jButton1.setFont(new java.awt.Font("Comic Sans MS", 1, 15));
 				this.jButton1.setBounds(75, 230, 150, 40);
 
 				jButton1.addActionListener(new java.awt.event.ActionListener() {
-					//Passa os parametros para a funcao que verifica se o usuario existe no BD
 					public void actionPerformed(java.awt.event.ActionEvent evt) {
 						jButton1ActionPerformed(evt, Integer.parseInt(escreverCPF.getText()), Integer.parseInt(escreverSenha.getText()));
 					}
@@ -166,11 +172,12 @@ public class Janelalogar extends JFrame{
 	    
 	public void addComponentes(){
 	
-		this.add(escreverCPF);
-		this.add(escreverSenha);
+	
 		this.add(CPF);
 		this.add(senha);
 		this.add(aviao);
+		this.add(escreverCPF);
+		this.add(escreverSenha);
 		this.add(jButton1);
 		this.add(jButton2);
 		

@@ -11,6 +11,7 @@ import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -48,16 +49,7 @@ public class JanelaEfetuarCadastro extends JFrame{
 	JButton jButton1;
 	JButton jButton2;
 
-	protected MaskFormatter createFormatter(String s) {
-		MaskFormatter formatter = null;
-		try {
-			formatter = new MaskFormatter(s);
-		} catch (java.text.ParseException exc) {
-			System.err.println("Formato errado: " + exc.getMessage());
-			System.exit(-1);
-		}
-		return formatter;
-	}
+
 
 	public JanelaEfetuarCadastro(){
 	
@@ -82,10 +74,12 @@ public class JanelaEfetuarCadastro extends JFrame{
 	// componentes da janela
 	public void setComponentes(){
 		
-				escreverCpf = new javax.swing.JFormattedTextField( createFormatter("#########-##"));
+				escreverCpf = new JFormattedTextField();
 				escreverCpf.setBounds(30, 200, 400, 20);
-				escreverSenha = new JTextField();
+				escreverCpf.setDocument(new RestringeCaracteres("0123456789",11));
+				escreverSenha = new JFormattedTextField();
 				escreverSenha.setBounds(30, 250, 400, 20);
+				escreverSenha.setDocument(new RestringeCaracteres("0123456789",8));
 				escreverEndereco = new JTextField();
 				escreverEndereco.setBounds(30, 300, 400, 20);
 				escreverNome = new JTextField();
@@ -107,7 +101,7 @@ public class JanelaEfetuarCadastro extends JFrame{
 				endereco.setBounds(30, 280, 250, 20);
 				endereco.setFont(new Font("Comic Sans MS", 1, 15));
 				
-				aviao = new JLabel(new ImageIcon("img/aviaocadastro.png"));		
+				aviao = new JLabel(new ImageIcon("Desenhos/aviaocadastro.png"));		
 				aviao.setBounds(30, 20, 130, 100);
 				
 				this.jButton1 = new JButton("EFETUAR CADASTRO");
@@ -135,9 +129,7 @@ public class JanelaEfetuarCadastro extends JFrame{
 		
 	}
 	
-	//Realiza o cadastro do Passageiro no BD
 	private void jButton1ActionPerformed(ActionEvent evt, int cpf, int senha, String endereco, String nome) {
-		
 		Conexao conexao = new Conexao();
 		FirebirdConnection conexaoFirebird = conexao.leituraInicial();
 		
