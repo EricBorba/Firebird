@@ -162,6 +162,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 	JanelaEscolherPassagem janela;
 	String destino;
 	Conexao conexao;
+	Controle controle;
 	FirebirdConnection firebirdConexao;
 	int cpf;
 	int senha;
@@ -172,7 +173,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 		this.conexao = conexao;
 		this.cpf = cpf;
 		this.senha = senha;
-		
+		this.controle = new Controle();
+		this.firebirdConexao = this.conexao.selecionandoAssento();
+
 	}
 
 
@@ -234,12 +237,21 @@ public class JanelaEscolherPoltrona extends JFrame{
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButton2ActionPerformed(evt);
 			}
-		
+
 		});		
 
 
 		poltrona1Aselecionar = true;
-		poltrona1A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1A")){
+				poltrona1A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona1A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona1A.setBounds(360, 300, 30, 30);
 		poltrona1A.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -249,7 +261,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 		});
 		poltrona2Aselecionar = true;
-		poltrona2A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2A")){
+				poltrona2A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona2A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona2A.setBounds(390, 300, 30, 30);
 		poltrona2A.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -259,7 +280,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 		});
 		poltrona3Aselecionar = true;
-		poltrona3A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3A")){
+				poltrona3A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona3A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona3A.setBounds(420, 300, 30, 30);
 		poltrona3A.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -269,7 +299,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 		});
 		poltrona4Aselecionar = true;
-		poltrona4A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4A")){
+				poltrona4A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona4A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona4A.setBounds(480, 300, 30, 30);
 		poltrona4A.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -279,7 +318,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 		});
 		poltrona5Aselecionar = true;
-		poltrona5A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5A")){
+				poltrona5A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona5A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona5A.setBounds(510, 300, 30, 30);
 		poltrona5A.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -289,7 +337,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 		});
 		poltrona6Aselecionar = true;
-		poltrona6A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6A")){
+				poltrona6A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona6A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona6A.setBounds(540, 300, 30, 30);
 		poltrona6A.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -300,7 +357,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 		});
 
 		poltrona1Bselecionar = true;
-		poltrona1B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1B")){
+				poltrona1B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona1B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona1B.setBounds(360, 330, 30, 30);
 		poltrona1B.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -312,7 +378,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona2Bselecionar = true;
-		poltrona2B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2B")){
+				poltrona2B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona2B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona2B.setBounds(390, 330, 30, 30);
 		poltrona2B.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -324,7 +399,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona3Bselecionar = true;
-		poltrona3B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3B")){
+				poltrona3B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona3B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona3B.setBounds(420, 330, 30, 30);
 		poltrona3B.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -336,7 +420,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona4Bselecionar = true;
-		poltrona4B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4B")){
+				poltrona4B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona4B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona4B.setBounds(480, 330, 30, 30);
 		poltrona4B.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -348,7 +441,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona5Bselecionar = true;
-		poltrona5B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5B")){
+				poltrona5B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona5B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona5B.setBounds(510, 330, 30, 30);
 		poltrona5B.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -360,7 +462,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona6Bselecionar = true;
-		poltrona6B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6B")){
+				poltrona6B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona6B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona6B.setBounds(540, 330, 30, 30);
 		poltrona6B.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -373,7 +484,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 		});
 
 		poltrona1Cselecionar = true;
-		poltrona1C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1C")){
+				poltrona1C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona1C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona1C.setBounds(360, 360, 30, 30);
 		poltrona1C.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -385,7 +505,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona2Cselecionar = true;
-		poltrona2C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2C")){
+				poltrona2C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona2C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona2C.setBounds(390, 360, 30, 30);
 		poltrona2C.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -397,7 +526,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona3Cselecionar = true;
-		poltrona3C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3C")){
+				poltrona3C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona3C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona3C.setBounds(420, 360, 30, 30);
 		poltrona3C.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -409,7 +547,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona4Cselecionar = true;
-		poltrona4C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4C")){
+				poltrona4C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona4C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona4C.setBounds(480, 360, 30, 30);
 		poltrona4C.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -421,7 +568,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona5Cselecionar = true;
-		poltrona5C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5C")){
+				poltrona5C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona5C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona5C.setBounds(510, 360, 30, 30);
 		poltrona5C.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -433,7 +589,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona6Cselecionar = true;
-		poltrona6C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6C")){
+				poltrona6C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona6C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona6C.setBounds(540, 360, 30, 30);
 		poltrona6C.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -445,7 +610,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona1Dselecionar = true;
-		poltrona1D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1D")){
+				poltrona1D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona1D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona1D.setBounds(360, 390, 30, 30);
 		poltrona1D.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -457,7 +631,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona2Dselecionar = true;
-		poltrona2D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2D")){
+				poltrona2D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona2D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona2D.setBounds(390, 390, 30, 30);
 		poltrona2D.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -469,7 +652,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona3Dselecionar = true;
-		poltrona3D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3D")){
+				poltrona3D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona3D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona3D.setBounds(420, 390, 30, 30);
 		poltrona3D.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -481,7 +673,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona4Dselecionar = true;
-		poltrona4D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4D")){
+				poltrona4D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona4D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona4D.setBounds(480, 390, 30, 30);
 		poltrona4D.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -493,7 +694,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona5Dselecionar = true;
-		poltrona5D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5D")){
+				poltrona5D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona5D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona5D.setBounds(510, 390, 30, 30);
 		poltrona5D.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -505,7 +715,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona6Dselecionar = true;
-		poltrona6D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6D")){
+				poltrona6D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona6D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona6D.setBounds(540, 390, 30, 30);
 		poltrona6D.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -518,7 +737,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 		});
 
 		poltrona1Eselecionar = true;
-		poltrona1E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1E")){
+				poltrona1E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona1E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona1E.setBounds(360, 420, 30, 30);
 		poltrona1E.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -530,7 +758,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona2Eselecionar = true;
-		poltrona2E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2E")){
+				poltrona2E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona2E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona2E.setBounds(390, 420, 30, 30);
 		poltrona2E.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -542,7 +779,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona3Eselecionar = true;
-		poltrona3E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3E")){
+				poltrona3E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona3E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona3E.setBounds(420, 420, 30, 30);
 		poltrona3E.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -554,7 +800,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona4Eselecionar = true;
-		poltrona4E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4E")){
+				poltrona4E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona4E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona4E.setBounds(480, 420, 30, 30);
 		poltrona4E.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -566,7 +821,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona5Eselecionar = true;
-		poltrona5E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5E")){
+				poltrona5E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona5E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona5E.setBounds(510, 420, 30, 30);
 		poltrona5E.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -578,7 +842,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona6Eselecionar = true;
-		poltrona6E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6E")){
+				poltrona6E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona6E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona6E.setBounds(540, 420, 30, 30);
 		poltrona6E.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -591,7 +864,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 		});
 
 		poltrona1Fselecionar = true;
-		poltrona1F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1F")){
+				poltrona1F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona1F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona1F.setBounds(360, 450, 30, 30);
 		poltrona1F.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -603,7 +885,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona2Fselecionar = true;
-		poltrona2F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2F")){
+				poltrona2F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona2F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona2F.setBounds(390, 450, 30, 30);
 		poltrona2F.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -615,7 +906,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona3Fselecionar = true;
-		poltrona3F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3F")){
+				poltrona3F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona3F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona3F.setBounds(420, 450, 30, 30);
 		poltrona3F.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -627,7 +927,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona4Fselecionar = true;
-		poltrona4F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4F")){
+				poltrona4F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona4F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona4F.setBounds(480, 450, 30, 30);
 		poltrona4F.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -639,7 +948,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona5Fselecionar = true;
-		poltrona5F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5F")){
+				poltrona5F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona5F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona5F.setBounds(510, 450, 30, 30);
 		poltrona5F.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -651,7 +969,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona6Fselecionar = true;
-		poltrona6F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6F")){
+				poltrona6F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona6F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona6F.setBounds(540, 450, 30, 30);
 		poltrona6F.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -664,7 +991,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 		});
 
 		poltrona1Gselecionar = true;
-		poltrona1G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1G")){
+				poltrona1G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona1G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona1G.setBounds(360, 480, 30, 30);
 		poltrona1G.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -676,7 +1012,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona2Gselecionar = true;
-		poltrona2G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2G")){
+				poltrona2G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona2G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona2G.setBounds(390, 480, 30, 30);
 		poltrona2G.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -688,7 +1033,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona3Gselecionar = true;
-		poltrona3G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3G")){
+				poltrona3G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona3G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona3G.setBounds(420, 480, 30, 30);
 		poltrona3G.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -700,7 +1054,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona4Gselecionar = true;
-		poltrona4G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4G")){
+				poltrona4G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona4G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona4G.setBounds(480, 480, 30, 30);
 		poltrona4G.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -712,7 +1075,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona5Gselecionar = true;
-		poltrona5G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5G")){
+				poltrona5G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona5G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona5G.setBounds(510, 480, 30, 30);
 		poltrona5G.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -724,7 +1096,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona6Gselecionar = true;
-		poltrona6G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6G")){
+				poltrona6G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona6G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona6G.setBounds(540, 480, 30, 30);
 		poltrona6G.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -736,7 +1117,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona1Hselecionar = true;
-		poltrona1H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1H")){
+				poltrona1H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona1H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona1H.setBounds(360, 510, 30, 30);
 		poltrona1H.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -748,7 +1138,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona2Hselecionar = true;
-		poltrona2H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2H")){
+				poltrona2H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona2H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona2H.setBounds(390, 510, 30, 30);
 		poltrona2H.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -760,7 +1159,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});	
 		poltrona3Hselecionar = true;
-		poltrona3H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3H")){
+				poltrona3H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona3H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona3H.setBounds(420, 510, 30, 30);
 		poltrona3H.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -772,7 +1180,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona4Hselecionar = true;
-		poltrona4H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4H")){
+				poltrona4H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona4H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona4H.setBounds(480, 510, 30, 30);
 		poltrona4H.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -784,7 +1201,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona5Hselecionar = true;
-		poltrona5H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5H")){
+				poltrona5H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona5H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona5H.setBounds(510, 510, 30, 30);
 		poltrona5H.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -796,7 +1222,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 		poltrona6Hselecionar = true;
-		poltrona6H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+		try {
+			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6H")){
+				poltrona6H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+			}else{
+				poltrona6H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		poltrona6H.setBounds(540, 510, 30, 30);
 		poltrona6H.addMouseListener(new java.awt.event.MouseAdapter() {  
 			public void mouseClicked(java.awt.event.MouseEvent evt) {  
@@ -1535,12 +1970,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 	private void jButton1ActionPerformed(ActionEvent evt) {
-		
-		this.firebirdConexao = conexao.leituraInicial();
-		
-		Controle controle = new Controle();
+
 		try {
-			controle.reservarPoltrona(firebirdConexao);
+			this.controle.reservarPoltrona(this.firebirdConexao);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1555,16 +1987,16 @@ public class JanelaEscolherPoltrona extends JFrame{
 		janelaPassagem.addComponentes();
 		janelaPassagem.setVisible(true);
 		this.dispose();
-		
+
 	}
 
 
 	public void addComponentes(){
-		
+
 		this.add(jButton1);
 		this.add(jButton2);
 		this.add(label1);
-	
+
 		//this.add(panel);
 		this.add(bicoAviao);
 		this.add(lateralEsquerda);
@@ -1633,12 +2065,12 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 	public static void main(String[] args) {
 
-//		JanelaEscolherPoltrona janela = new JanelaEscolherPoltrona();
-//		janela.setJanelaInicial();
-//		janela.setComponentes();
-//		janela.setComponentesAviao();
-//		janela.addComponentes();
-//		janela.setVisible(true);
+		//		JanelaEscolherPoltrona janela = new JanelaEscolherPoltrona();
+		//		janela.setJanelaInicial();
+		//		janela.setComponentes();
+		//		janela.setComponentesAviao();
+		//		janela.addComponentes();
+		//		janela.setVisible(true);
 
 	}
 

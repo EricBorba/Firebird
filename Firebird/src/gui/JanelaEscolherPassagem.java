@@ -41,7 +41,7 @@ public class JanelaEscolherPassagem extends JFrame{
 	JButton jButton1;
 	JButton jButton2;
 	JComboBox jComboBox1;
-	Conexao conexao = null;
+	Conexao conexao;
 	String destinoSelecionado = null;
 	int cpf;
 	int senha;

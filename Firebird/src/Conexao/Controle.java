@@ -83,10 +83,11 @@ public class Controle {
 
 	}
 
+	//por enquanto nao esta sendo usado
 	public ArrayList<String> lerAssentosReservados(FirebirdConnection conexao, String destino) throws SQLException{
 
 		ArrayList<String> listaAssentosReservados = new ArrayList<String>();
-		
+
 		conexao.setAutoCommit(true);
 		// A necessidade deste lock eh para nao permitir atualizacao do registro que esta lendo ( leitura suja )
 		PreparedStatement  statement = conexao.prepareStatement("SELECT a.fk_numero FROM RESERVA a WHERE a.destino = ? WITH LOCK");
@@ -103,40 +104,75 @@ public class Controle {
 
 	}
 
+	public Boolean poltronaReservada(Conexao conexao, String destino, String numeroPoltrona) throws SQLException{
+
+		FirebirdConnection firebirdConexao = conexao.leituraInicial();
+		Boolean existeReserva = true;
+		firebirdConexao.setAutoCommit(true);
+
+		PreparedStatement  statementReserva = firebirdConexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.destino = ? WITH LOCK");		
+		statementReserva.setString(1, numeroPoltrona);
+		statementReserva.setString(2, destino);
+		ResultSet resultado = statementReserva.executeQuery();
+
+
+		if(resultado.getInt(1) == 3){
+			existeReserva = false;
+		}
+
+		statementReserva.close();
+
+		return existeReserva;			
+
+	}
+
 	public Boolean selecionarPoltrona(FirebirdConnection conexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
 
 		conexao.setAutoCommit(false);
 		Boolean podeReservar = false;
 		//FirebirdSavepoint pontodeRecuperacao =  conexao.setFirebirdSavepoint();
-		
-				
+
+
 		PreparedStatement  statementReserva = conexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.destino = ? WITH LOCK");		
 		statementReserva.setString(1, numeroPoltrona);
 		statementReserva.setString(2, destino);
 		ResultSet resultado = statementReserva.executeQuery();
-				
+
 		//colocar aqui a condicao para executar o passo abaixo apenas se o cpf retornado na query acima for igual ao que representa disponibilidade.
-		
-		
-		
-		PreparedStatement statementUpdate = conexao.prepareStatement("UPDATE RESERVA a SET a.fk_cpf = ? WHERE a.fk_numero = ? AND a.destino = ?");
-		statementUpdate.setInt(1, cpf);
-		statementUpdate.setString(2, numeroPoltrona);
-		statementUpdate.setString(3, destino);
-		statementUpdate.executeUpdate();
-		statementUpdate.close();
-		statementReserva.close();		
-				
-		
-		
+
+		if(resultado.getInt(1) == 3){
+
+			podeReservar = true;
+
+			PreparedStatement statementUpdate = conexao.prepareStatement("UPDATE RESERVA a SET a.fk_cpf = ? WHERE a.fk_numero = ? AND a.destino = ?");
+			statementUpdate.setInt(1, cpf);
+			statementUpdate.setString(2, numeroPoltrona);
+			statementUpdate.setString(3, destino);
+			statementUpdate.executeUpdate();
+			//Verificar se Ž poss’vel realmente executar esse close(), afinal ele pode acabar liberando a cadeira para outro sistema.
+			statementUpdate.close();
+			//statementReserva.close();	
+
+		}else{
+			statementReserva.close();
+		}
+
+
+
 		return podeReservar;
-		
+
 	}
 
-	public void reservarPoltrona(FirebirdConnection conexao) throws SQLException{
+	public void desfazerSelecao(FirebirdConnection firebirdConexao) throws SQLException{
 
-		conexao.commit();
-		
+		firebirdConexao.rollback();
+
+	}
+
+	public void reservarPoltrona(FirebirdConnection firebirdConexao) throws SQLException{
+
+		firebirdConexao.commit();
+
 	}
 
 }
