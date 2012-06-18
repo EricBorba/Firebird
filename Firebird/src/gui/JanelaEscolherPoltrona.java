@@ -100,61 +100,61 @@ public class JanelaEscolherPoltrona extends JFrame{
 	JLabel poltrona5H;
 	JLabel poltrona6H;
 
-	boolean poltrona1Aselecionar;
-	boolean poltrona2Aselecionar;
-	boolean poltrona3Aselecionar;
-	boolean poltrona4Aselecionar;
-	boolean poltrona5Aselecionar;
-	boolean poltrona6Aselecionar;
+	int poltrona1Aselecionar;
+	int poltrona2Aselecionar;
+	int poltrona3Aselecionar;
+	int poltrona4Aselecionar;
+	int poltrona5Aselecionar;
+	int poltrona6Aselecionar;
 
-	boolean poltrona1Bselecionar;
-	boolean poltrona2Bselecionar;
-	boolean poltrona3Bselecionar;
-	boolean poltrona4Bselecionar;
-	boolean poltrona5Bselecionar;
-	boolean poltrona6Bselecionar;
+	int poltrona1Bselecionar;
+	int poltrona2Bselecionar;
+	int poltrona3Bselecionar;
+	int poltrona4Bselecionar;
+	int poltrona5Bselecionar;
+	int poltrona6Bselecionar;
 
-	boolean poltrona1Cselecionar;
-	boolean poltrona2Cselecionar;
-	boolean poltrona3Cselecionar;
-	boolean poltrona4Cselecionar;
-	boolean poltrona5Cselecionar;
-	boolean poltrona6Cselecionar;
+	int poltrona1Cselecionar;
+	int poltrona2Cselecionar;
+	int poltrona3Cselecionar;
+	int poltrona4Cselecionar;
+	int poltrona5Cselecionar;
+	int poltrona6Cselecionar;
 
-	boolean poltrona1Dselecionar;
-	boolean poltrona2Dselecionar;
-	boolean poltrona3Dselecionar;
-	boolean poltrona4Dselecionar;
-	boolean poltrona5Dselecionar;
-	boolean poltrona6Dselecionar;
+	int poltrona1Dselecionar;
+	int poltrona2Dselecionar;
+	int poltrona3Dselecionar;
+	int poltrona4Dselecionar;
+	int poltrona5Dselecionar;
+	int poltrona6Dselecionar;
 
-	boolean poltrona1Eselecionar;
-	boolean poltrona2Eselecionar;
-	boolean poltrona3Eselecionar;
-	boolean poltrona4Eselecionar;
-	boolean poltrona5Eselecionar;
-	boolean poltrona6Eselecionar;
+	int poltrona1Eselecionar;
+	int poltrona2Eselecionar;
+	int poltrona3Eselecionar;
+	int poltrona4Eselecionar;
+	int poltrona5Eselecionar;
+	int poltrona6Eselecionar;
 
-	boolean poltrona1Fselecionar;
-	boolean poltrona2Fselecionar;
-	boolean poltrona3Fselecionar;
-	boolean poltrona4Fselecionar;
-	boolean poltrona5Fselecionar;
-	boolean poltrona6Fselecionar;
+	int poltrona1Fselecionar;
+	int poltrona2Fselecionar;
+	int poltrona3Fselecionar;
+	int poltrona4Fselecionar;
+	int poltrona5Fselecionar;
+	int poltrona6Fselecionar;
 
-	boolean poltrona1Gselecionar;
-	boolean poltrona2Gselecionar;
-	boolean poltrona3Gselecionar;
-	boolean poltrona4Gselecionar;
-	boolean poltrona5Gselecionar;
-	boolean poltrona6Gselecionar;
+	int poltrona1Gselecionar;
+	int poltrona2Gselecionar;
+	int poltrona3Gselecionar;
+	int poltrona4Gselecionar;
+	int poltrona5Gselecionar;
+	int poltrona6Gselecionar;
 
-	boolean poltrona1Hselecionar;
-	boolean poltrona2Hselecionar;
-	boolean poltrona3Hselecionar;
-	boolean poltrona4Hselecionar;
-	boolean poltrona5Hselecionar;
-	boolean poltrona6Hselecionar;
+	int poltrona1Hselecionar;
+	int poltrona2Hselecionar;
+	int poltrona3Hselecionar;
+	int poltrona4Hselecionar;
+	int poltrona5Hselecionar;
+	int poltrona6Hselecionar;
 
 	JLabel indice;
 	JPanel panel;
@@ -241,12 +241,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 		});		
 
 
-		poltrona1Aselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1A")){
 				poltrona1A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona1Aselecionar = 1;
 			}else{
 				poltrona1A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona1Aselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -260,12 +262,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 			}
 		});
-		poltrona2Aselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2A")){
 				poltrona2A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona2Aselecionar = 1;
 			}else{
 				poltrona2A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona2Aselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -279,12 +283,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 			}
 		});
-		poltrona3Aselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3A")){
 				poltrona3A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona3Aselecionar = 1;
 			}else{
 				poltrona3A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona3Aselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -298,12 +304,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 			}
 		});
-		poltrona4Aselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4A")){
 				poltrona4A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona4Aselecionar = 1;
 			}else{
 				poltrona4A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona4Aselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -317,12 +325,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 			}
 		});
-		poltrona5Aselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5A")){
 				poltrona5A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona5Aselecionar = 1;
 			}else{
 				poltrona5A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona5Aselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -336,12 +346,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 			}
 		});
-		poltrona6Aselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6A")){
 				poltrona6A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona6Aselecionar = 1;
 			}else{
 				poltrona6A = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona6Aselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -356,12 +368,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 		});
 
-		poltrona1Bselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1B")){
 				poltrona1B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona1Bselecionar = 1;
 			}else{
 				poltrona1B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona1Bselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -377,12 +391,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona2Bselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2B")){
 				poltrona2B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona2Bselecionar = 1;
 			}else{
 				poltrona2B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona2Bselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -398,12 +414,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona3Bselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3B")){
 				poltrona3B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona3Bselecionar = 1;
 			}else{
 				poltrona3B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona3Bselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -419,12 +437,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona4Bselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4B")){
 				poltrona4B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona4Bselecionar = 1;
 			}else{
 				poltrona4B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona4Bselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -440,12 +460,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona5Bselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5B")){
 				poltrona5B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona5Bselecionar = 1;
 			}else{
 				poltrona5B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona5Bselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -461,12 +483,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona6Bselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6B")){
 				poltrona6B = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona6Bselecionar = 1;
 			}else{
 				poltrona6B = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona6Bselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -483,12 +507,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 
-		poltrona1Cselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1C")){
 				poltrona1C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona1Cselecionar = 1;
 			}else{
 				poltrona1C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona1Cselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -504,12 +530,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona2Cselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2C")){
 				poltrona2C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona2Cselecionar = 1;
 			}else{
 				poltrona2C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona2Cselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -525,12 +553,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona3Cselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3C")){
 				poltrona3C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona3Cselecionar = 1;
 			}else{
 				poltrona3C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona3Cselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -546,12 +576,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona4Cselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4C")){
 				poltrona4C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona4Cselecionar = 1;
 			}else{
 				poltrona4C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona4Cselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -567,12 +599,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona5Cselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5C")){
 				poltrona5C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona5Cselecionar = 1;
 			}else{
 				poltrona5C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona5Cselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -588,12 +622,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona6Cselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6C")){
 				poltrona6C = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona6Cselecionar = 1;
 			}else{
 				poltrona6C = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona6Cselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -609,12 +645,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona1Dselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1D")){
 				poltrona1D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona1Dselecionar = 1;
 			}else{
 				poltrona1D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona1Dselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -630,12 +668,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona2Dselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2D")){
 				poltrona2D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona2Dselecionar = 1;
 			}else{
 				poltrona2D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona2Dselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -651,12 +691,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona3Dselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3D")){
 				poltrona3D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona3Dselecionar = 1;
 			}else{
 				poltrona3D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona3Dselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -672,12 +714,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona4Dselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4D")){
 				poltrona4D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona4Dselecionar = 1;
 			}else{
 				poltrona4D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona4Dselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -693,12 +737,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona5Dselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5D")){
 				poltrona5D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona5Dselecionar = 1;
 			}else{
 				poltrona5D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona5Dselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -714,12 +760,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona6Dselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6D")){
 				poltrona6D = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona6Dselecionar = 1;
 			}else{
 				poltrona6D = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona6Dselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -736,12 +784,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 
-		poltrona1Eselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1E")){
 				poltrona1E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona1Eselecionar = 1;
 			}else{
 				poltrona1E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona1Eselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -757,12 +807,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona2Eselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2E")){
 				poltrona2E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona2Eselecionar = 1;
 			}else{
 				poltrona2E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona2Eselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -778,12 +830,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona3Eselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3E")){
 				poltrona3E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona3Eselecionar = 1;
 			}else{
 				poltrona3E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona3Eselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -799,12 +853,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona4Eselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4E")){
 				poltrona4E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona4Eselecionar = 1;
 			}else{
 				poltrona4E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona4Eselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -820,12 +876,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona5Eselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5E")){
 				poltrona5E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona5Eselecionar = 1;
 			}else{
 				poltrona5E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona5Eselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -841,12 +899,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona6Eselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6E")){
 				poltrona6E = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona6Eselecionar = 1;
 			}else{
 				poltrona6E = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona6Eselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -863,12 +923,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 
-		poltrona1Fselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1F")){
 				poltrona1F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona1Fselecionar = 1;
 			}else{
 				poltrona1F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona1Fselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -884,12 +946,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona2Fselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2F")){
 				poltrona2F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona2Fselecionar = 1;
 			}else{
 				poltrona2F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona2Fselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -905,12 +969,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona3Fselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3F")){
 				poltrona3F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona3Fselecionar = 1;
 			}else{
 				poltrona3F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona3Fselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -926,12 +992,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona4Fselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4F")){
 				poltrona4F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona4Fselecionar = 1;
 			}else{
 				poltrona4F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona4Fselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -947,12 +1015,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona5Fselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5F")){
 				poltrona5F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona5Fselecionar = 1;
 			}else{
 				poltrona5F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona5Fselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -968,12 +1038,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona6Fselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6F")){
 				poltrona6F = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona6Fselecionar = 1;
 			}else{
 				poltrona6F = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona6Fselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -990,12 +1062,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		});
 
-		poltrona1Gselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1G")){
 				poltrona1G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona1Gselecionar = 1;
 			}else{
 				poltrona1G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona1Gselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1011,12 +1085,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona2Gselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2G")){
 				poltrona2G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona2Gselecionar = 1;
 			}else{
 				poltrona2G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona2Gselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1032,12 +1108,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona3Gselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3G")){
 				poltrona3G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona3Gselecionar = 1;
 			}else{
 				poltrona3G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona3Gselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1053,12 +1131,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona4Gselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4G")){
 				poltrona4G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona4Gselecionar = 1;
 			}else{
 				poltrona4G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona4Gselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1074,12 +1154,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona5Gselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5G")){
 				poltrona5G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona5Gselecionar = 1;
 			}else{
 				poltrona5G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona5Gselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1095,12 +1177,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona6Gselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6G")){
 				poltrona6G = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona6Gselecionar = 1;
 			}else{
 				poltrona6G = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona6Gselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1116,12 +1200,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona1Hselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1H")){
 				poltrona1H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona1Hselecionar = 1;
 			}else{
 				poltrona1H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona1Hselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1137,12 +1223,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona2Hselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "2H")){
 				poltrona2H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona2Hselecionar = 1;
 			}else{
 				poltrona2H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona2Hselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1158,12 +1246,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});	
-		poltrona3Hselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "3H")){
 				poltrona3H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona3Hselecionar = 1;
 			}else{
 				poltrona3H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona3Hselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1179,12 +1269,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona4Hselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "4H")){
 				poltrona4H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona4Hselecionar = 1;
 			}else{
 				poltrona4H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona4Hselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1200,12 +1292,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona5Hselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "5H")){
 				poltrona5H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona5Hselecionar = 1;
 			}else{
 				poltrona5H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona5Hselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1221,12 +1315,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		});
-		poltrona6Hselecionar = true;
+
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "6H")){
 				poltrona6H = new JLabel(new ImageIcon("img/poltronaVaga.png"));
+				poltrona6Hselecionar = 1;
 			}else{
 				poltrona6H = new JLabel(new ImageIcon("img/poltronaSelecionada.png"));
+				poltrona6Hselecionar = 3;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1252,718 +1348,1389 @@ public class JanelaEscolherPoltrona extends JFrame{
 	}  
 
 	public void poltrona1AActionPerformed(MouseEvent evt){
-		if(poltrona1Aselecionar == true){
+		if(poltrona1Aselecionar == 1){
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "1A", this.cpf, this.destino)){
+					poltrona1A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona1A.setBounds(360, 300, 30, 30);
+					poltrona1Aselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-			poltrona1A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona1A.setBounds(360, 300, 30, 30);
-			poltrona1Aselecionar = false;
 
-		}else if(poltrona1Aselecionar == false){
+		}else if(poltrona1Aselecionar == 2){
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona1A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1A.setBounds(360, 300, 30, 30);
-			poltrona1Aselecionar = true;
+			poltrona1Aselecionar = 1;
 		}
 
 	}
 	public void poltrona2AActionPerformed(MouseEvent evt){
-		if(poltrona2Aselecionar == true){
+		if(poltrona2Aselecionar == 1){
 
-			poltrona2A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona2A.setBounds(390, 300, 30, 30);
-			poltrona2Aselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "2A", this.cpf, this.destino)){
+					poltrona2A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona2A.setBounds(360, 300, 30, 30);
+					poltrona2Aselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona2Aselecionar == false){
+		}else if(poltrona2Aselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona2A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2A.setBounds(390, 300, 30, 30);
-			poltrona2Aselecionar = true;
+			poltrona2Aselecionar = 1;
 		}
 
 	}
 	public void poltrona3AActionPerformed(MouseEvent evt){
-		if(poltrona3Aselecionar == true){
+		if(poltrona3Aselecionar == 1){
 
-			poltrona3A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona3A.setBounds(420, 300, 30, 30);
-			poltrona3Aselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "3A", this.cpf, this.destino)){
+					poltrona3A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona3A.setBounds(360, 300, 30, 30);
+					poltrona3Aselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona3Aselecionar == false){
+		}else if(poltrona3Aselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona3A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3A.setBounds(420, 300, 30, 30);
-			poltrona3Aselecionar = true;
+			poltrona3Aselecionar = 1;
 		}
 
 	}
 	public void poltrona4AActionPerformed(MouseEvent evt){
-		if(poltrona4Aselecionar == true){
+		if(poltrona4Aselecionar == 1){
 
-			poltrona4A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona4A.setBounds(480, 300, 30, 30);
-			poltrona4Aselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "4A", this.cpf, this.destino)){
+					poltrona4A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona4A.setBounds(360, 300, 30, 30);
+					poltrona4Aselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona4Aselecionar == false){
+		}else if(poltrona4Aselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona4A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona4A.setBounds(480, 300, 30, 30);
-			poltrona4Aselecionar = true;
+			poltrona4Aselecionar = 1;
 		}
 
 	}
 	public void poltrona5AActionPerformed(MouseEvent evt){
-		if(poltrona5Aselecionar == true){
+		if(poltrona5Aselecionar == 1){
 
-			poltrona5A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona5A.setBounds(510, 300, 30, 30);
-			poltrona5Aselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "5A", this.cpf, this.destino)){
+					poltrona5A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona5A.setBounds(360, 300, 30, 30);
+					poltrona5Aselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona5Aselecionar == false){
+		}else if(poltrona5Aselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona5A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona5A.setBounds(510, 300, 30, 30);
-			poltrona5Aselecionar = true;
+			poltrona5Aselecionar = 1;
 		}
 
 	}
 	public void poltrona6AActionPerformed(MouseEvent evt){
-		if(poltrona6Aselecionar == true){
+		if(poltrona6Aselecionar == 1){
 
-			poltrona6A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona6A.setBounds(540, 300, 30, 30);
-			poltrona6Aselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "6A", this.cpf, this.destino)){
+					poltrona6A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona6A.setBounds(360, 300, 30, 30);
+					poltrona6Aselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona6Aselecionar == false){
+		}else if(poltrona6Aselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona6A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona6A.setBounds(540, 300, 30, 30);
-			poltrona6Aselecionar = true;
+			poltrona6Aselecionar = 1;
 		}
 
 	}
 
 
 	private void poltrona1BActionPerformed(MouseEvent evt) {
-		if(poltrona1Bselecionar == true){
+		if(poltrona1Bselecionar == 1){
 
-			poltrona1B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona1B.setBounds(360, 330, 30, 30);
-			poltrona1Bselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "1B", this.cpf, this.destino)){
+					poltrona1B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona1B.setBounds(360, 300, 30, 30);
+					poltrona1Bselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona1Bselecionar == false){
+		}else if(poltrona1Bselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona1B.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1B.setBounds(360, 330, 30, 30);
-			poltrona1Bselecionar = true;
+			poltrona1Bselecionar = 1;
 		}
 
 	}
 
 	private void poltrona2BActionPerformed(MouseEvent evt) {
-		if(poltrona2Bselecionar == true){
+		if(poltrona2Bselecionar == 1){
 
-			poltrona2B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona2B.setBounds(390, 330, 30, 30);
-			poltrona2Bselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "2B", this.cpf, this.destino)){
+					poltrona2B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona2B.setBounds(360, 300, 30, 30);
+					poltrona2Bselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona2Bselecionar == false){
+		}else if(poltrona2Bselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona2B.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2B.setBounds(390, 330, 30, 30);
-			poltrona2Bselecionar = true;
+			poltrona2Bselecionar = 1;
 		}
 
 	}
 
 	private void poltrona3BActionPerformed(MouseEvent evt) {
-		if(poltrona3Bselecionar == true){
+		if(poltrona3Bselecionar == 1){
 
-			poltrona3B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona3B.setBounds(420, 330, 30, 30);
-			poltrona3Bselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "3B", this.cpf, this.destino)){
+					poltrona3B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona3B.setBounds(360, 300, 30, 30);
+					poltrona3Bselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona3Bselecionar == false){
+		}else if(poltrona3Bselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona3B.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3B.setBounds(420, 330, 30, 30);
-			poltrona3Bselecionar = true;
+			poltrona3Bselecionar = 1;
 		}
 
 	}
 
 	private void poltrona4BActionPerformed(MouseEvent evt) {
-		if(poltrona4Bselecionar == true){
+		if(poltrona4Bselecionar == 1){
 
-			poltrona4B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona4B.setBounds(480, 330, 30, 30);
-			poltrona4Bselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "4B", this.cpf, this.destino)){
+					poltrona4B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona4B.setBounds(360, 300, 30, 30);
+					poltrona4Bselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona4Bselecionar == false){
+		}else if(poltrona4Bselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona4B.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona4B.setBounds(480, 330, 30, 30);
-			poltrona4Bselecionar = true;
+			poltrona4Bselecionar = 1;
 		}
 
 	}
 
 	private void poltrona5BActionPerformed(MouseEvent evt) {
-		if(poltrona5Bselecionar == true){
+		if(poltrona5Bselecionar == 1){
 
-			poltrona5B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona5B.setBounds(510, 330, 30, 30);
-			poltrona5Bselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "5B", this.cpf, this.destino)){
+					poltrona5B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona5B.setBounds(360, 300, 30, 30);
+					poltrona5Bselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona5Bselecionar == false){
+		}else if(poltrona5Bselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona5B.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona5B.setBounds(510, 330, 30, 30);
-			poltrona5Bselecionar = true;
+			poltrona5Bselecionar = 1;
 		}
 
 	}
 
 	private void poltrona6BActionPerformed(MouseEvent evt) {
-		if(poltrona6Bselecionar == true){
+		if(poltrona6Bselecionar == 1){
 
-			poltrona6B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona6B.setBounds(540, 330, 30, 30);
-			poltrona6Bselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "6B", this.cpf, this.destino)){
+					poltrona6B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona6B.setBounds(360, 300, 30, 30);
+					poltrona6Bselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona6Bselecionar == false){
+		}else if(poltrona6Bselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona6B.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona6B.setBounds(540, 330, 30, 30);
-			poltrona6Bselecionar = true;
+			poltrona6Bselecionar = 1;
 		}
 
 	}
 
 	private void poltrona1CActionPerformed(MouseEvent evt) {
-		if(poltrona1Cselecionar == true){
+		if(poltrona1Cselecionar == 1){
 
-			poltrona1C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona1C.setBounds(360, 360, 30, 30);
-			poltrona1Cselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "1C", this.cpf, this.destino)){
+					poltrona1C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona1C.setBounds(360, 300, 30, 30);
+					poltrona1Cselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona1Cselecionar == false){
+		}else if(poltrona1Cselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona1C.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1C.setBounds(360, 360, 30, 30);
-			poltrona1Cselecionar = true;
+			poltrona1Cselecionar = 1;
 		}
 
 	}
 
 	private void poltrona2CActionPerformed(MouseEvent evt) {
-		if(poltrona2Cselecionar == true){
+		if(poltrona2Cselecionar == 1){
 
-			poltrona2C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona2C.setBounds(390, 360, 30, 30);
-			poltrona2Cselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "2C", this.cpf, this.destino)){
+					poltrona2C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona2C.setBounds(360, 300, 30, 30);
+					poltrona2Cselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona2Cselecionar == false){
+		}else if(poltrona2Cselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona2C.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2C.setBounds(390, 360, 30, 30);
-			poltrona2Cselecionar = true;
+			poltrona2Cselecionar = 1;
 		}
 
 	}
 
 	private void poltrona3CActionPerformed(MouseEvent evt) {
-		if(poltrona3Cselecionar == true){
+		if(poltrona3Cselecionar == 1){
 
-			poltrona3C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona3C.setBounds(420, 360, 30, 30);
-			poltrona3Cselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "3C", this.cpf, this.destino)){
+					poltrona3C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona3C.setBounds(360, 300, 30, 30);
+					poltrona3Cselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona3Cselecionar == false){
+		}else if(poltrona3Cselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona3C.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3C.setBounds(420, 360, 30, 30);
-			poltrona3Cselecionar = true;
+			poltrona3Cselecionar = 1;
 		}
 
 	}
 
 	private void poltrona4CActionPerformed(MouseEvent evt) {
-		if(poltrona4Cselecionar == true){
+		if(poltrona4Cselecionar == 1){
 
-			poltrona4C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona4C.setBounds(480, 360, 30, 30);
-			poltrona4Cselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "4C", this.cpf, this.destino)){
+					poltrona4C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona4C.setBounds(360, 300, 30, 30);
+					poltrona4Cselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona4Cselecionar == false){
+		}else if(poltrona4Cselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona4C.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona4C.setBounds(480, 360, 30, 30);
-			poltrona4Cselecionar = true;
+			poltrona4Cselecionar = 1;
 		}
 
 	}
 
 	private void poltrona5CActionPerformed(MouseEvent evt) {
-		if(poltrona5Cselecionar == true){
+		if(poltrona5Cselecionar == 1){
 
-			poltrona5C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona5C.setBounds(510, 360, 30, 30);
-			poltrona5Cselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "5C", this.cpf, this.destino)){
+					poltrona5C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona5C.setBounds(360, 300, 30, 30);
+					poltrona5Cselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona5Cselecionar == false){
+		}else if(poltrona5Cselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona5C.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona5C.setBounds(510, 360, 30, 30);
-			poltrona5Cselecionar = true;
+			poltrona5Cselecionar = 1;
 		}
 
 	}
 
 	private void poltrona6CActionPerformed(MouseEvent evt) {
-		if(poltrona6Cselecionar == true){
+		if(poltrona6Cselecionar == 1){
 
-			poltrona6C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona6C.setBounds(540, 360, 30, 30);
-			poltrona6Cselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "6C", this.cpf, this.destino)){
+					poltrona6C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona6C.setBounds(360, 300, 30, 30);
+					poltrona6Cselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona6Cselecionar == false){
+		}else if(poltrona6Cselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona6C.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona6C.setBounds(540, 360, 30, 30);
-			poltrona6Cselecionar = true;
+			poltrona6Cselecionar = 1;
 		}
 
 	}
 
 	private void poltrona1DActionPerformed(MouseEvent evt) {
-		if(poltrona1Dselecionar == true){
+		if(poltrona1Dselecionar == 1){
 
-			poltrona1D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona1D.setBounds(360, 390, 30, 30);
-			poltrona1Dselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "1D", this.cpf, this.destino)){
+					poltrona1D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona1D.setBounds(360, 300, 30, 30);
+					poltrona1Dselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona1Dselecionar == false){
+		}else if(poltrona1Dselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona1D.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1D.setBounds(360, 390, 30, 30);
-			poltrona1Dselecionar = true;
+			poltrona1Dselecionar = 1;
 		}
 
 	}
 
 	private void poltrona2DActionPerformed(MouseEvent evt) {
-		if(poltrona2Dselecionar == true){
+		if(poltrona2Dselecionar == 1){
 
-			poltrona2D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona2D.setBounds(390, 390, 30, 30);
-			poltrona2Dselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "2D", this.cpf, this.destino)){
+					poltrona2D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona2D.setBounds(360, 300, 30, 30);
+					poltrona2Dselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona2Dselecionar == false){
+		}else if(poltrona2Dselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona2D.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2D.setBounds(390, 390, 30, 30);
-			poltrona2Dselecionar = true;
+			poltrona2Dselecionar = 1;
 		}
 
 	}
 
 	private void poltrona3DActionPerformed(MouseEvent evt) {
-		if(poltrona3Dselecionar == true){
+		if(poltrona3Dselecionar == 1){
 
-			poltrona3D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona3D.setBounds(420, 390, 30, 30);
-			poltrona3Dselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "3D", this.cpf, this.destino)){
+					poltrona3D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona3D.setBounds(360, 300, 30, 30);
+					poltrona3Dselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona3Dselecionar == false){
+		}else if(poltrona3Dselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona3D.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3D.setBounds(420, 390, 30, 30);
-			poltrona3Dselecionar = true;
+			poltrona3Dselecionar = 1;
 		}
 
 	}
 
 	private void poltrona4DActionPerformed(MouseEvent evt) {
-		if(poltrona4Dselecionar == true){
+		if(poltrona4Dselecionar == 1){
 
-			poltrona4D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona4D.setBounds(480, 390, 30, 30);
-			poltrona4Dselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "4D", this.cpf, this.destino)){
+					poltrona4D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona4D.setBounds(360, 300, 30, 30);
+					poltrona4Dselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona4Dselecionar == false){
+		}else if(poltrona4Dselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona4D.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona4D.setBounds(480, 390, 30, 30);
-			poltrona4Dselecionar = true;
+			poltrona4Dselecionar = 1;
 		}
 
 	}
 
 	private void poltrona5DActionPerformed(MouseEvent evt) {
-		if(poltrona5Dselecionar == true){
+		if(poltrona5Dselecionar == 1){
 
-			poltrona5D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona5D.setBounds(510, 390, 30, 30);
-			poltrona5Dselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "5D", this.cpf, this.destino)){
+					poltrona5D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona5D.setBounds(360, 300, 30, 30);
+					poltrona5Dselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona5Dselecionar == false){
+		}else if(poltrona5Dselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona5D.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona5D.setBounds(510, 390, 30, 30);
-			poltrona5Dselecionar = true;
+			poltrona5Dselecionar = 1;
 		}
 
 	}
 
 	private void poltrona6DActionPerformed(MouseEvent evt) {
-		if(poltrona6Dselecionar == true){
+		if(poltrona6Dselecionar == 1){
 
-			poltrona6D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona6D.setBounds(540, 390, 30, 30);
-			poltrona6Dselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "6D", this.cpf, this.destino)){
+					poltrona6D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona6D.setBounds(360, 300, 30, 30);
+					poltrona6Dselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona6Dselecionar == false){
+		}else if(poltrona6Dselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona6D.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona6D.setBounds(540, 390, 30, 30);
-			poltrona6Dselecionar = true;
+			poltrona6Dselecionar = 1;
 		}
 
 	}
 
 	private void poltrona1EActionPerformed(MouseEvent evt) {
-		if(poltrona1Eselecionar == true){
+		if(poltrona1Eselecionar == 1){
 
-			poltrona1E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona1E.setBounds(360, 420, 30, 30);
-			poltrona1Eselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "1E", this.cpf, this.destino)){
+					poltrona1E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona1E.setBounds(360, 300, 30, 30);
+					poltrona1Eselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona1Eselecionar == false){
+		}else if(poltrona1Eselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona1E.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1E.setBounds(360, 420, 30, 30);
-			poltrona1Eselecionar = true;
+			poltrona1Eselecionar = 1;
 		}
 
 	}
 
 	private void poltrona2EActionPerformed(MouseEvent evt) {
-		if(poltrona2Eselecionar == true){
+		if(poltrona2Eselecionar == 1){
 
-			poltrona2E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona2E.setBounds(390, 420, 30, 30);
-			poltrona2Eselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "2E", this.cpf, this.destino)){
+					poltrona2E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona2E.setBounds(360, 300, 30, 30);
+					poltrona2Eselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona2Eselecionar == false){
+		}else if(poltrona2Eselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona2E.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2E.setBounds(390, 420, 30, 30);
-			poltrona2Eselecionar = true;
+			poltrona2Eselecionar = 1;
 		}
 
 	}
 
 	private void poltrona3EActionPerformed(MouseEvent evt) {
-		if(poltrona3Eselecionar == true){
+		if(poltrona3Eselecionar == 1){
 
-			poltrona3E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona3E.setBounds(420, 420, 30, 30);
-			poltrona3Eselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "3E", this.cpf, this.destino)){
+					poltrona3E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona3E.setBounds(360, 300, 30, 30);
+					poltrona3Eselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona3Eselecionar == false){
+		}else if(poltrona3Eselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona3E.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3E.setBounds(420, 420, 30, 30);
-			poltrona3Eselecionar = true;
+			poltrona3Eselecionar = 1;
 		}
 
 	}
 
 	private void poltrona4EActionPerformed(MouseEvent evt) {
-		if(poltrona4Eselecionar == true){
+		if(poltrona4Eselecionar == 1){
 
-			poltrona4E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona4E.setBounds(480, 420, 30, 30);
-			poltrona4Eselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "4E", this.cpf, this.destino)){
+					poltrona4E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona4E.setBounds(360, 300, 30, 30);
+					poltrona4Eselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona4Eselecionar == false){
+		}else if(poltrona4Eselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona4E.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona4E.setBounds(480, 420, 30, 30);
-			poltrona4Eselecionar = true;
+			poltrona4Eselecionar = 1;
 		}
 
 	}
 
 	private void poltrona5EActionPerformed(MouseEvent evt) {
-		if(poltrona5Eselecionar == true){
+		if(poltrona5Eselecionar == 1){
 
-			poltrona5E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona5E.setBounds(510, 420, 30, 30);
-			poltrona5Eselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "5E", this.cpf, this.destino)){
+					poltrona5E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona5E.setBounds(360, 300, 30, 30);
+					poltrona5Eselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona5Eselecionar == false){
+		}else if(poltrona5Eselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona5E.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona5E.setBounds(510, 420, 30, 30);
-			poltrona5Eselecionar = true;
+			poltrona5Eselecionar = 1;
 		}
 
 	}
 
 	private void poltrona6EActionPerformed(MouseEvent evt) {
-		if(poltrona6Eselecionar == true){
+		if(poltrona6Eselecionar == 1){
 
-			poltrona6E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona6E.setBounds(540, 420, 30, 30);
-			poltrona6Eselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "6E", this.cpf, this.destino)){
+					poltrona6E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona6E.setBounds(360, 300, 30, 30);
+					poltrona6Eselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona6Eselecionar == false){
+		}else if(poltrona6Eselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona6E.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona6E.setBounds(540, 420, 30, 30);
-			poltrona6Eselecionar = true;
+			poltrona6Eselecionar = 1;
 		}
 
 	}
 
 	private void poltrona1FActionPerformed(MouseEvent evt) {
-		if(poltrona1Fselecionar == true){
+		if(poltrona1Fselecionar == 1){
 
-			poltrona1F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona1F.setBounds(360, 450, 30, 30);
-			poltrona1Fselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "1F", this.cpf, this.destino)){
+					poltrona1F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona1F.setBounds(360, 300, 30, 30);
+					poltrona1Fselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona1Fselecionar == false){
+		}else if(poltrona1Fselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona1F.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1F.setBounds(360, 450, 30, 30);
-			poltrona1Fselecionar = true;
+			poltrona1Fselecionar = 1;
 		}
 
 
 	}
 
 	private void poltrona2FActionPerformed(MouseEvent evt) {
-		if(poltrona2Fselecionar == true){
+		if(poltrona2Fselecionar == 1){
 
-			poltrona2F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona2F.setBounds(390, 450, 30, 30);
-			poltrona2Fselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "2F", this.cpf, this.destino)){
+					poltrona2F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona2F.setBounds(360, 300, 30, 30);
+					poltrona2Fselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona2Fselecionar == false){
+		}else if(poltrona2Fselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona2F.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2F.setBounds(390, 450, 30, 30);
-			poltrona2Fselecionar = true;
+			poltrona2Fselecionar = 1;
 		}
 
 	}
 
 	private void poltrona3FActionPerformed(MouseEvent evt) {
-		if(poltrona3Fselecionar == true){
+		if(poltrona3Fselecionar == 1){
 
-			poltrona3F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona3F.setBounds(420, 450, 30, 30);
-			poltrona3Fselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "3F", this.cpf, this.destino)){
+					poltrona3F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona3F.setBounds(360, 300, 30, 30);
+					poltrona3Fselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona3Fselecionar == false){
+		}else if(poltrona3Fselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona3F.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3F.setBounds(420, 450, 30, 30);
-			poltrona3Fselecionar = true;
+			poltrona3Fselecionar = 1;
 		}
 
 	}
 
 	private void poltrona4FActionPerformed(MouseEvent evt) {
-		if(poltrona4Fselecionar == true){
+		if(poltrona4Fselecionar == 1){
 
-			poltrona4F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona4F.setBounds(480, 450, 30, 30);
-			poltrona4Fselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "4F", this.cpf, this.destino)){
+					poltrona4F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona4F.setBounds(360, 300, 30, 30);
+					poltrona4Fselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona4Fselecionar == false){
+		}else if(poltrona4Fselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona4F.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona4F.setBounds(480, 450, 30, 30);
-			poltrona4Fselecionar = true;
+			poltrona4Fselecionar = 1;
 		}
 
 	}
 
 	private void poltrona5FActionPerformed(MouseEvent evt) {
-		if(poltrona5Fselecionar == true){
+		if(poltrona5Fselecionar == 1){
 
-			poltrona5F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona5F.setBounds(510, 450, 30, 30);
-			poltrona5Fselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "5F", this.cpf, this.destino)){
+					poltrona5F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona5F.setBounds(360, 300, 30, 30);
+					poltrona5Fselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona5Fselecionar == false){
+		}else if(poltrona5Fselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona5F.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona5F.setBounds(510, 450, 30, 30);
-			poltrona5Fselecionar = true;
+			poltrona5Fselecionar = 1;
 		}
 
 	}
 
 	private void poltrona6FActionPerformed(MouseEvent evt) {
-		if(poltrona6Fselecionar == true){
+		if(poltrona6Fselecionar == 1){
 
-			poltrona6F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona6F.setBounds(540, 450, 30, 30);
-			poltrona6Fselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "6F", this.cpf, this.destino)){
+					poltrona6F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona6F.setBounds(360, 300, 30, 30);
+					poltrona6Fselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona6Fselecionar == false){
+		}else if(poltrona6Fselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona6F.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona6F.setBounds(540, 450, 30, 30);
-			poltrona6Fselecionar = true;
+			poltrona6Fselecionar = 1;
 		}
 
 	}
 
 	private void poltrona1GActionPerformed(MouseEvent evt) {
-		if(poltrona1Gselecionar == true){
+		if(poltrona1Gselecionar == 1){
 
-			poltrona1G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona1G.setBounds(360, 480, 30, 30);
-			poltrona1Gselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "1G", this.cpf, this.destino)){
+					poltrona1G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona1G.setBounds(360, 300, 30, 30);
+					poltrona1Gselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona1Gselecionar == false){
+		}else if(poltrona1Gselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona1G.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1G.setBounds(360, 480, 30, 30);
-			poltrona1Gselecionar = true;
+			poltrona1Gselecionar = 1;
 		}
 
 	}
 
 	private void poltrona2GActionPerformed(MouseEvent evt) {
-		if(poltrona2Gselecionar == true){
+		if(poltrona2Gselecionar == 1){
 
-			poltrona2G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona2G.setBounds(390, 480, 30, 30);
-			poltrona2Gselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "2G", this.cpf, this.destino)){
+					poltrona2G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona2G.setBounds(360, 300, 30, 30);
+					poltrona2Gselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona2Gselecionar == false){
+		}else if(poltrona2Gselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona2G.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2G.setBounds(390, 480, 30, 30);
-			poltrona2Gselecionar = true;
+			poltrona2Gselecionar = 1;
 		}
 
 	}
 
 	private void poltrona3GActionPerformed(MouseEvent evt) {
-		if(poltrona3Gselecionar == true){
+		if(poltrona3Gselecionar == 1){
 
-			poltrona3G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona3G.setBounds(420, 480, 30, 30);
-			poltrona3Gselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "3G", this.cpf, this.destino)){
+					poltrona3G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona3G.setBounds(360, 300, 30, 30);
+					poltrona3Gselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona3Gselecionar == false){
+		}else if(poltrona3Gselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona3G.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3G.setBounds(420, 480, 30, 30);
-			poltrona3Gselecionar = true;
+			poltrona3Gselecionar = 1;
 		}
 
 	}
 
 	private void poltrona4GActionPerformed(MouseEvent evt) {
-		if(poltrona4Gselecionar == true){
+		if(poltrona4Gselecionar == 1){
 
-			poltrona4G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona4G.setBounds(480, 480, 30, 30);
-			poltrona4Gselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "4G", this.cpf, this.destino)){
+					poltrona4G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona4G.setBounds(360, 300, 30, 30);
+					poltrona4Gselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona4Gselecionar == false){
+		}else if(poltrona4Gselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona4G.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona4G.setBounds(480, 480, 30, 30);
-			poltrona4Gselecionar = true;
+			poltrona4Gselecionar = 1;
 		}
 
 	}
 
 	private void poltrona5GActionPerformed(MouseEvent evt) {
-		if(poltrona5Gselecionar == true){
+		if(poltrona5Gselecionar == 1){
 
-			poltrona5G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona5G.setBounds(510, 480, 30, 30);
-			poltrona5Gselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "5G", this.cpf, this.destino)){
+					poltrona5G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona5G.setBounds(360, 300, 30, 30);
+					poltrona5Gselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona5Gselecionar == false){
+		}else if(poltrona5Gselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona5G.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona5G.setBounds(510, 480, 30, 30);
-			poltrona5Gselecionar = true;
+			poltrona5Gselecionar = 1;
 		}
 
 	}
 
 	private void poltrona6GActionPerformed(MouseEvent evt) {
-		if(poltrona6Gselecionar == true){
+		if(poltrona6Gselecionar == 1){
 
-			poltrona6G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona6G.setBounds(540, 480, 30, 30);
-			poltrona6Gselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "6G", this.cpf, this.destino)){
+					poltrona6G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona6G.setBounds(360, 300, 30, 30);
+					poltrona6Gselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona6Gselecionar == false){
+		}else if(poltrona6Gselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona6G.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona6G.setBounds(540, 480, 30, 30);
-			poltrona6Gselecionar = true;
+			poltrona6Gselecionar = 1;
 		}
 
 	}
 
 	private void poltrona1HActionPerformed(MouseEvent evt) {
-		if(poltrona1Hselecionar == true){
+		if(poltrona1Hselecionar == 1){
 
-			poltrona1H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona1H.setBounds(360, 510, 30, 30);
-			poltrona1Hselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "1H", this.cpf, this.destino)){
+					poltrona1H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona1H.setBounds(360, 300, 30, 30);
+					poltrona1Hselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona1Hselecionar == false){
+		}else if(poltrona1Hselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona1H.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1H.setBounds(360, 510, 30, 30);
-			poltrona1Hselecionar = true;
+			poltrona1Hselecionar = 1;
 		}
 
 	}
 
 	private void poltrona2HActionPerformed(MouseEvent evt) {
-		if(poltrona2Hselecionar == true){
+		if(poltrona2Hselecionar == 1){
 
-			poltrona2H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona2H.setBounds(390, 510, 30, 30);
-			poltrona2Hselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "2H", this.cpf, this.destino)){
+					poltrona2H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona2H.setBounds(360, 300, 30, 30);
+					poltrona2Hselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona2Hselecionar == false){
+		}else if(poltrona2Hselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona2H.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2H.setBounds(390, 510, 30, 30);
-			poltrona2Hselecionar = true;
+			poltrona2Hselecionar = 1;
 		}
 
 	}
 
 	private void poltrona3HActionPerformed(MouseEvent evt) {
-		if(poltrona3Hselecionar == true){
+		if(poltrona3Hselecionar == 1){
 
-			poltrona3H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona3H.setBounds(420, 510, 30, 30);
-			poltrona3Hselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "3H", this.cpf, this.destino)){
+					poltrona3H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona3H.setBounds(360, 300, 30, 30);
+					poltrona3Hselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona3Hselecionar == false){
+		}else if(poltrona3Hselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona3H.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3H.setBounds(420, 510, 30, 30);
-			poltrona3Hselecionar = true;
+			poltrona3Hselecionar = 1;
 		}
 
 	}
 
 	private void poltrona4HActionPerformed(MouseEvent evt) {
-		if(poltrona4Hselecionar == true){
+		if(poltrona4Hselecionar == 1){
 
-			poltrona4H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona4H.setBounds(480, 510, 30, 30);
-			poltrona4Hselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "4H", this.cpf, this.destino)){
+					poltrona4H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona4H.setBounds(360, 300, 30, 30);
+					poltrona4Hselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona4Hselecionar == false){
+		}else if(poltrona4Hselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona4H.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona4H.setBounds(480, 510, 30, 30);
-			poltrona4Hselecionar = true;
+			poltrona4Hselecionar = 1;
 		}
 
 	}
 
 	private void poltrona5HActionPerformed(MouseEvent evt) {
-		if(poltrona5Hselecionar == true){
+		if(poltrona5Hselecionar == 1){
 
-			poltrona5H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona5H.setBounds(510, 510, 30, 30);
-			poltrona5Hselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "5H", this.cpf, this.destino)){
+					poltrona5H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona5H.setBounds(360, 300, 30, 30);
+					poltrona5Hselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona5Hselecionar == false){
+		}else if(poltrona5Hselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona5H.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona5H.setBounds(510, 510, 30, 30);
-			poltrona5Hselecionar = true;
+			poltrona5Hselecionar = 1;
 		}
 
 	}
 
 	private void poltrona6HActionPerformed(MouseEvent evt) {
-		if(poltrona6Hselecionar == true){
+		if(poltrona6Hselecionar == 1){
 
-			poltrona6H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-			poltrona6H.setBounds(540, 510, 30, 30);
-			poltrona6Hselecionar = false;
+			try {
+				if(controle.selecionarPoltrona(this.firebirdConexao, "6H", this.cpf, this.destino)){
+					poltrona6H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
+					poltrona6H.setBounds(360, 300, 30, 30);
+					poltrona6Hselecionar = 2;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		}else if(poltrona6Hselecionar == false){
+		}else if(poltrona6Hselecionar == 2){
+			
+			try {
+				this.controle.desfazerSelecao(this.firebirdConexao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			poltrona6H.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona6H.setBounds(540, 510, 30, 30);
-			poltrona6Hselecionar = true;
+			poltrona6Hselecionar = 1;
 		}
 
 	}

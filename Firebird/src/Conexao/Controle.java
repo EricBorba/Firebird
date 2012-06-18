@@ -154,6 +154,7 @@ public class Controle {
 			//statementReserva.close();	
 
 		}else{
+			//se n funcionar somente com isso realizar rollback na conexao toda.
 			statementReserva.close();
 		}
 
