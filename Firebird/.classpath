@@ -11,11 +11,6 @@
 	<classpathentry exported="true" kind="lib" path="/System/Library/Java/Extensions/mlibwrapper_jai.jar"/>
 	<classpathentry exported="true" kind="lib" path="/System/Library/Java/Extensions/MRJToolkit.jar"/>
 	<classpathentry exported="true" kind="lib" path="/System/Library/Java/Extensions/vecmath.jar"/>
-	<classpathentry kind="lib" path="/Users/ERB/Downloads/Jaybird-2.1.6JDK_1.6/jaybird-2.1.6.jar"/>
 	<classpathentry kind="lib" path="/Users/ERB/Downloads/Jaybird-2.1.6JDK_1.6/jaybird-full-2.1.6.jar"/>
-	<classpathentry kind="lib" path="/Users/ERB/Downloads/Jaybird-2.1.6JDK_1.6/jaybird-pool-2.1.6.jar"/>
-	<classpathentry kind="lib" path="/Users/ERB/Downloads/Jaybird-2.1.6JDK_1.6/lib/jaas.jar"/>
-	<classpathentry kind="lib" path="/Users/ERB/Downloads/Jaybird-2.1.6JDK_1.6/lib/log4j-core.jar"/>
-	<classpathentry kind="lib" path="/Users/ERB/Downloads/Jaybird-2.1.6JDK_1.6/lib/mini-j2ee.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

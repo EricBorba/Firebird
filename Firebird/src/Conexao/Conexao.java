@@ -1,5 +1,8 @@
 package Conexao;
+import java.io.File;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.firebirdsql.gds.TransactionParameterBuffer;
@@ -8,15 +11,15 @@ import org.firebirdsql.jdbc.FirebirdConnection;
 
 public class Conexao {
 
-	static String url;
-	static String drive;
-	static String login; 
-	static String pass;
+	String url;
+	String drive;
+	String login; 
+	String pass;
 	
 
 	public Conexao(){
 		
-		url = "jdbc:firebirdsql:localhost/3050:/Library/Frameworks/Firebird.framework/Flycin.fdb" ;                                                                                                                 
+		url = "jdbc:firebirdsql:localhost:" + new File("src/Flycin.fdb").getAbsolutePath();                                                                                                                 
 		drive = "org.firebirdsql.jdbc.FBDriver";
 		login = "SYSDBA";
 		pass = "masterkey";
@@ -38,22 +41,33 @@ public class Conexao {
 		try {
 			
 			
-			connection = (FBConnection) DriverManager.getConnection( url, login, pass);
+			connection = (FBConnection) DriverManager.getConnection( this.url, this.login, this.pass);
+			
+			/*PreparedStatement  statement = connection.prepareStatement("SELECT rdb$relation_name FROM rdb$relations");
 			
 			connection.setAutoCommit(false);
-
+			
+			ResultSet resultado = statement.executeQuery();
+			
 			System.out.println("Ok");
+			
+			
+			
+			resultado.next();
+			
+			System.out.println(resultado.getString(1));*/
 
 			System.out.print("Passando os parametros de conexao...");
 			
 			TransactionParameterBuffer tp = connection.createTransactionParameterBuffer();
-			tp.addArgument(FirebirdConnection.TPB_READ_COMMITTED);
-			tp.addArgument(FirebirdConnection.TPB_READ);
-			tp.addArgument(FirebirdConnection.TPB_REC_VERSION);
-			connection.setTransactionParameters(tp);
+		//	tp.addArgument(FirebirdConnection.TPB_READ_COMMITTED);
+		//	tp.addArgument(FirebirdConnection.TPB_READ);
+			//tp.addArgument(FirebirdConnection.TPB_REC_VERSION);
+		//	connection.setTransactionParameters(tp);
 			
 			System.out.println("Ok");
-
+			
+		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -75,7 +89,7 @@ public class Conexao {
 			
 			connection = (FBConnection) DriverManager.getConnection( url, login, pass);
 			
-			connection.setAutoCommit(false);
+		//	connection.setAutoCommit(false);
 
 			System.out.println("Ok");
 

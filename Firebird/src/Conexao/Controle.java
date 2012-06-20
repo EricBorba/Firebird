@@ -1,5 +1,6 @@
 package Conexao;
 
+import java.beans.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,18 +19,25 @@ public class Controle {
 	public Boolean logar(FirebirdConnection conexao, int cpf, int senha) throws SQLException{
 
 		boolean existePassageiro = false;
+		String senhaString = String.valueOf(senha);
 
 
-		//conexao.setAutoCommit(false);
 
 		// Esse lock eh justificado apenas pra garantir uma unica instancia do sistema logada ( nao ter 2 sistemas logados com o mesmo usuario )
-		PreparedStatement  statement = conexao.prepareStatement("SELECT p.cpf FROM PASSAGEIRO p WHERE p.cpf = ? AND p.senha = ? WITH LOCK");
+
+
+		PreparedStatement  statement = conexao.prepareStatement("SELECT P.CPF FROM PASSAGEIRO P WHERE P.CPF = ? AND P.SENHA = ? WITH LOCK");
+
 		statement.setInt(1, cpf);
-		statement.setInt(2, senha);
+		statement.setString(2, senhaString);
+
+		//conexao.setAutoCommit(true);
 
 		ResultSet resultado = statement.executeQuery();
 
-		if(resultado.first()){
+		resultado.next();
+
+		if(resultado.getInt(1) == cpf){
 
 			existePassageiro = true;
 
@@ -69,7 +77,7 @@ public class Controle {
 
 		conexao.setAutoCommit(true);
 		// A necessidade deste lock eh para nao permitir atualizacao do registro que esta lendo ( leitura suja )
-		PreparedStatement  statement = conexao.prepareStatement("SELECT d.nome FROM DESTINOS d WITH LOCK");
+		PreparedStatement  statement = conexao.prepareStatement("SELECT L.nome_destino FROM LOCAL L WITH LOCK");
 
 		ResultSet resultado = statement.executeQuery();
 
@@ -108,16 +116,19 @@ public class Controle {
 
 		FirebirdConnection firebirdConexao = conexao.leituraInicial();
 		Boolean existeReserva = true;
-		firebirdConexao.setAutoCommit(true);
 
-		PreparedStatement  statementReserva = firebirdConexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.destino = ? WITH LOCK");		
+		firebirdConexao.setAutoCommit(false);
+
+		PreparedStatement  statementReserva = firebirdConexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.fk_destino = ? WITH LOCK");		
 		statementReserva.setString(1, numeroPoltrona);
 		statementReserva.setString(2, destino);
 		ResultSet resultado = statementReserva.executeQuery();
 
+		while(resultado.next()){
 
-		if(resultado.getInt(1) == 3){
-			existeReserva = false;
+			if(resultado.getInt(1) == 3){
+				existeReserva = false;
+			}
 		}
 
 		statementReserva.close();
@@ -133,7 +144,7 @@ public class Controle {
 		//FirebirdSavepoint pontodeRecuperacao =  conexao.setFirebirdSavepoint();
 
 
-		PreparedStatement  statementReserva = conexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.destino = ? WITH LOCK");		
+		PreparedStatement  statementReserva = conexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.fk_destino = ? WITH LOCK");		
 		statementReserva.setString(1, numeroPoltrona);
 		statementReserva.setString(2, destino);
 		ResultSet resultado = statementReserva.executeQuery();
