@@ -1,0 +1,2 @@
+- Na hora do login mostrar que n‹o Ž poss’vel 2 aplicacoes diferentes logar ao mesmo tempo com o mesmo cpf ( ou n‹o, se descomentar a linha que permite que a conexao seja fechada )
+- Mostrar que na tela onde mostra os destinos a conex‹o tem que ser fechada sen‹o outras pessoas n‹o poder‹o visualizar as cadeiras do mesmo destino em quest‹o.

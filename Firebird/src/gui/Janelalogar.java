@@ -139,6 +139,9 @@ public class Janelalogar extends JFrame {
 		try {
 			Controle controle = new Controle();
 			existeCadastro = controle.logar(conexaoFirebird,cpf,senha);
+			
+			//Se a linha abaixo estiver descomentada ira permitir o uso do mesmo login e senha em aplicativos diferentes 
+			//conexaoFirebird.close();
 		} catch (SQLException e) {
 			// Erro com relacao ao SQL
 			e.printStackTrace();

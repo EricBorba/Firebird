@@ -10,6 +10,7 @@ import java.util.Vector;
 import org.firebirdsql.jdbc.FirebirdConnection;
 import org.firebirdsql.jdbc.FirebirdSavepoint;
 
+
 public class Controle {
 
 	public Controle(){
@@ -132,44 +133,52 @@ public class Controle {
 		}
 
 		statementReserva.close();
+		firebirdConexao.commit();
+		
 
 		return existeReserva;			
 
 	}
 
-	public Boolean selecionarPoltrona(FirebirdConnection conexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
+	public Boolean selecionarPoltrona(FirebirdConnection firebirdConexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
 
-		conexao.setAutoCommit(false);
+		
+		
+		firebirdConexao.setAutoCommit(false);
 		Boolean podeReservar = false;
 		//FirebirdSavepoint pontodeRecuperacao =  conexao.setFirebirdSavepoint();
 
 
-		PreparedStatement  statementReserva = conexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.fk_destino = ? WITH LOCK");		
+		PreparedStatement  statementReserva = firebirdConexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.fk_destino = ? WITH LOCK");		
 		statementReserva.setString(1, numeroPoltrona);
 		statementReserva.setString(2, destino);
 		ResultSet resultado = statementReserva.executeQuery();
 
 		//colocar aqui a condicao para executar o passo abaixo apenas se o cpf retornado na query acima for igual ao que representa disponibilidade.
 
-		if(resultado.getInt(1) == 3){
+		while(resultado.next()){
 
-			podeReservar = true;
+			if(resultado.getInt(1) == 3){
 
-			PreparedStatement statementUpdate = conexao.prepareStatement("UPDATE RESERVA a SET a.fk_cpf = ? WHERE a.fk_numero = ? AND a.destino = ?");
-			statementUpdate.setInt(1, cpf);
-			statementUpdate.setString(2, numeroPoltrona);
-			statementUpdate.setString(3, destino);
-			statementUpdate.executeUpdate();
-			//Verificar se Ž poss’vel realmente executar esse close(), afinal ele pode acabar liberando a cadeira para outro sistema.
-			statementUpdate.close();
-			//statementReserva.close();	
+				podeReservar = true;
 
-		}else{
-			//se n funcionar somente com isso realizar rollback na conexao toda.
-			statementReserva.close();
+				PreparedStatement statementUpdate = firebirdConexao.prepareStatement("UPDATE RESERVA a SET a.fk_cpf = ? WHERE a.fk_numero = ? AND a.fk_destino = ?");
+				statementUpdate.setInt(1, cpf);
+				statementUpdate.setString(2, numeroPoltrona);
+				statementUpdate.setString(3, destino);
+				statementUpdate.executeUpdate();
+				//Verificar se Ž poss’vel realmente executar esse close(), afinal ele pode acabar liberando a cadeira para outro sistema.
+				statementUpdate.close();
+				//statementReserva.close();	
+
+			}
+			/*else{
+				//se n funcionar somente com isso realizar rollback na conexao toda.
+				statementReserva.close();
+			}*/
+
 		}
-
-
+		
 
 		return podeReservar;
 
@@ -178,6 +187,8 @@ public class Controle {
 	public void desfazerSelecao(FirebirdConnection firebirdConexao) throws SQLException{
 
 		firebirdConexao.rollback();
+		
+		
 
 	}
 

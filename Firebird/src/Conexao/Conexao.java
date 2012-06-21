@@ -60,9 +60,9 @@ public class Conexao {
 			System.out.print("Passando os parametros de conexao...");
 			
 			TransactionParameterBuffer tp = connection.createTransactionParameterBuffer();
-		//	tp.addArgument(FirebirdConnection.TPB_READ_COMMITTED);
+			//tp.addArgument(FirebirdConnection.TPB_READ_COMMITTED);
 		//	tp.addArgument(FirebirdConnection.TPB_READ);
-			//tp.addArgument(FirebirdConnection.TPB_REC_VERSION);
+		//	tp.addArgument(FirebirdConnection.TPB_REC_VERSION);
 		//	connection.setTransactionParameters(tp);
 			
 			System.out.println("Ok");

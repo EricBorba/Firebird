@@ -109,10 +109,13 @@ public class JanelaEscolherPassagem extends JFrame{
 		try {
 			Controle controle = new Controle();
 			destinos = controle.lerDestinos(conexaoFirebird);
+			conexaoFirebird.close();
 		} catch (SQLException e) {
 			// Erro com relacao ao SQL
 			e.printStackTrace();
 		}
+		
+		
 
 		this.jComboBox1 = new JComboBox(destinos);
 		this.jComboBox1.setBounds(40,150, 400, 20);
@@ -145,6 +148,7 @@ public class JanelaEscolherPassagem extends JFrame{
 	}
 
 	private void jButton2ActionPerformed(ActionEvent evt) {
+		
 		Janelalogar janela = new Janelalogar();
 		janela.setJanelaInicial();
 		janela.setComponentes();

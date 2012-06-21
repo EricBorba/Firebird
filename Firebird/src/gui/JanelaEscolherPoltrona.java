@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -31,6 +32,7 @@ import org.firebirdsql.jdbc.FirebirdConnection;
 
 import Conexao.Conexao;
 import Conexao.Controle;
+
 
 
 
@@ -100,61 +102,121 @@ public class JanelaEscolherPoltrona extends JFrame{
 	JLabel poltrona5H;
 	JLabel poltrona6H;
 
-	int poltrona1Aselecionar;
-	int poltrona2Aselecionar;
-	int poltrona3Aselecionar;
-	int poltrona4Aselecionar;
-	int poltrona5Aselecionar;
-	int poltrona6Aselecionar;
+	/* Firebird Connection */
 
-	int poltrona1Bselecionar;
-	int poltrona2Bselecionar;
-	int poltrona3Bselecionar;
-	int poltrona4Bselecionar;
-	int poltrona5Bselecionar;
-	int poltrona6Bselecionar;
+	FirebirdConnection poltrona1AFirebirdConnection;
+	FirebirdConnection poltrona2AFirebirdConnection;
+	FirebirdConnection poltrona3AFirebirdConnection;
+	FirebirdConnection poltrona4AFirebirdConnection;
+	FirebirdConnection poltrona5AFirebirdConnection;
+	FirebirdConnection poltrona6AFirebirdConnection;
 
-	int poltrona1Cselecionar;
-	int poltrona2Cselecionar;
-	int poltrona3Cselecionar;
-	int poltrona4Cselecionar;
-	int poltrona5Cselecionar;
-	int poltrona6Cselecionar;
+	FirebirdConnection poltrona1BFirebirdConnection;
+	FirebirdConnection poltrona2BFirebirdConnection;
+	FirebirdConnection poltrona3BFirebirdConnection;
+	FirebirdConnection poltrona4BFirebirdConnection;
+	FirebirdConnection poltrona5BFirebirdConnection;
+	FirebirdConnection poltrona6BFirebirdConnection;
 
-	int poltrona1Dselecionar;
-	int poltrona2Dselecionar;
-	int poltrona3Dselecionar;
-	int poltrona4Dselecionar;
-	int poltrona5Dselecionar;
-	int poltrona6Dselecionar;
+	FirebirdConnection poltrona1CFirebirdConnection;
+	FirebirdConnection poltrona2CFirebirdConnection;
+	FirebirdConnection poltrona3CFirebirdConnection;
+	FirebirdConnection poltrona4CFirebirdConnection;
+	FirebirdConnection poltrona5CFirebirdConnection;
+	FirebirdConnection poltrona6CFirebirdConnection;
 
-	int poltrona1Eselecionar;
-	int poltrona2Eselecionar;
-	int poltrona3Eselecionar;
-	int poltrona4Eselecionar;
-	int poltrona5Eselecionar;
-	int poltrona6Eselecionar;
+	FirebirdConnection poltrona1DFirebirdConnection;
+	FirebirdConnection poltrona2DFirebirdConnection;
+	FirebirdConnection poltrona3DFirebirdConnection;
+	FirebirdConnection poltrona4DFirebirdConnection;
+	FirebirdConnection poltrona5DFirebirdConnection;
+	FirebirdConnection poltrona6DFirebirdConnection;
 
-	int poltrona1Fselecionar;
-	int poltrona2Fselecionar;
-	int poltrona3Fselecionar;
-	int poltrona4Fselecionar;
-	int poltrona5Fselecionar;
-	int poltrona6Fselecionar;
+	FirebirdConnection poltrona1EFirebirdConnection;
+	FirebirdConnection poltrona2EFirebirdConnection;
+	FirebirdConnection poltrona3EFirebirdConnection;
+	FirebirdConnection poltrona4EFirebirdConnection;
+	FirebirdConnection poltrona5EFirebirdConnection;
+	FirebirdConnection poltrona6EFirebirdConnection;
 
-	int poltrona1Gselecionar;
-	int poltrona2Gselecionar;
-	int poltrona3Gselecionar;
-	int poltrona4Gselecionar;
-	int poltrona5Gselecionar;
-	int poltrona6Gselecionar;
+	FirebirdConnection poltrona1FFirebirdConnection;
+	FirebirdConnection poltrona2FFirebirdConnection;
+	FirebirdConnection poltrona3FFirebirdConnection;
+	FirebirdConnection poltrona4FFirebirdConnection;
+	FirebirdConnection poltrona5FFirebirdConnection;
+	FirebirdConnection poltrona6FFirebirdConnection;
 
-	int poltrona1Hselecionar;
-	int poltrona2Hselecionar;
-	int poltrona3Hselecionar;
-	int poltrona4Hselecionar;
-	int poltrona5Hselecionar;
-	int poltrona6Hselecionar;
+	FirebirdConnection poltrona1GFirebirdConnection;
+	FirebirdConnection poltrona2GFirebirdConnection;
+	FirebirdConnection poltrona3GFirebirdConnection;
+	FirebirdConnection poltrona4GFirebirdConnection;
+	FirebirdConnection poltrona5GFirebirdConnection;
+	FirebirdConnection poltrona6GFirebirdConnection;
+
+	FirebirdConnection poltrona1HFirebirdConnection;
+	FirebirdConnection poltrona2HFirebirdConnection;
+	FirebirdConnection poltrona3HFirebirdConnection;
+	FirebirdConnection poltrona4HFirebirdConnection;
+	FirebirdConnection poltrona5HFirebirdConnection;
+	FirebirdConnection poltrona6HFirebirdConnection;
+
+	/* Fim das Firebird Connection*/
+
+	Integer poltrona1Aselecionar;
+	Integer poltrona2Aselecionar;
+	Integer poltrona3Aselecionar;
+	Integer poltrona4Aselecionar;
+	Integer poltrona5Aselecionar;
+	Integer poltrona6Aselecionar;
+
+	Integer poltrona1Bselecionar;
+	Integer poltrona2Bselecionar;
+	Integer poltrona3Bselecionar;
+	Integer poltrona4Bselecionar;
+	Integer poltrona5Bselecionar;
+	Integer poltrona6Bselecionar;
+
+	Integer poltrona1Cselecionar;
+	Integer poltrona2Cselecionar;
+	Integer poltrona3Cselecionar;
+	Integer poltrona4Cselecionar;
+	Integer poltrona5Cselecionar;
+	Integer poltrona6Cselecionar;
+
+	Integer poltrona1Dselecionar;
+	Integer poltrona2Dselecionar;
+	Integer poltrona3Dselecionar;
+	Integer poltrona4Dselecionar;
+	Integer poltrona5Dselecionar;
+	Integer poltrona6Dselecionar;
+
+	Integer poltrona1Eselecionar;
+	Integer poltrona2Eselecionar;
+	Integer poltrona3Eselecionar;
+	Integer poltrona4Eselecionar;
+	Integer poltrona5Eselecionar;
+	Integer poltrona6Eselecionar;
+
+	Integer poltrona1Fselecionar;
+	Integer poltrona2Fselecionar;
+	Integer poltrona3Fselecionar;
+	Integer poltrona4Fselecionar;
+	Integer poltrona5Fselecionar;
+	Integer poltrona6Fselecionar;
+
+	Integer poltrona1Gselecionar;
+	Integer poltrona2Gselecionar;
+	Integer poltrona3Gselecionar;
+	Integer poltrona4Gselecionar;
+	Integer poltrona5Gselecionar;
+	Integer poltrona6Gselecionar;
+
+	Integer poltrona1Hselecionar;
+	Integer poltrona2Hselecionar;
+	Integer poltrona3Hselecionar;
+	Integer poltrona4Hselecionar;
+	Integer poltrona5Hselecionar;
+	Integer poltrona6Hselecionar;
 
 	JLabel indice;
 	JPanel panel;
@@ -163,7 +225,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 	String destino;
 	Conexao conexao;
 	Controle controle;
-	FirebirdConnection firebirdConexao;
+	ArrayList<Integer> poltronasSelecionadas;
+	//FirebirdConnection firebirdConexao;
 	int cpf;
 	int senha;
 
@@ -174,7 +237,113 @@ public class JanelaEscolherPoltrona extends JFrame{
 		this.cpf = cpf;
 		this.senha = senha;
 		this.controle = new Controle();
-		this.firebirdConexao = this.conexao.selecionandoAssento();
+		poltronasSelecionadas = new ArrayList<Integer>();
+		//this.firebirdConexao = this.conexao.selecionandoAssento();
+
+		poltrona1AFirebirdConnection= this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona1Aselecionar);
+		poltrona2AFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona2Aselecionar);
+		poltrona3AFirebirdConnection=  this.conexao.selecionandoAssento() ;
+		poltronasSelecionadas.add(poltrona3Aselecionar);
+		poltrona4AFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona4Aselecionar);
+		poltrona5AFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona5Aselecionar);
+		poltrona6AFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona6Aselecionar);
+
+		poltrona1BFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona1Bselecionar);
+		poltrona2BFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona2Bselecionar);
+		poltrona3BFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona3Bselecionar);
+		poltrona4BFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona4Bselecionar);
+		poltrona5BFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona5Bselecionar);
+		poltrona6BFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona6Bselecionar);
+
+		poltrona1CFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona1Cselecionar);
+		poltrona2CFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona2Cselecionar);
+		poltrona3CFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona3Cselecionar);
+		poltrona4CFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona4Cselecionar);
+		poltrona5CFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona5Cselecionar);
+		poltrona6CFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona6Cselecionar);
+
+		poltrona1DFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona1Dselecionar);
+		poltrona2DFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona2Dselecionar);
+		poltrona3DFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona3Dselecionar);
+		poltrona4DFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona4Dselecionar);
+		poltrona5DFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona5Dselecionar);
+		poltrona6DFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona6Dselecionar);
+
+		poltrona1EFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona1Eselecionar);
+		poltrona2EFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona2Eselecionar);
+		poltrona3EFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona3Eselecionar);
+		poltrona4EFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona4Eselecionar);
+		poltrona5EFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona5Eselecionar);
+		poltrona6EFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona6Eselecionar);
+
+		poltrona1FFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona1Fselecionar);
+		poltrona2FFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona2Fselecionar);
+		poltrona3FFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona3Fselecionar);
+		poltrona4FFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona4Fselecionar);
+		poltrona5FFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona5Fselecionar);
+		poltrona6FFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona6Fselecionar);
+
+		poltrona1GFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona1Gselecionar);
+		poltrona2GFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona2Gselecionar);
+		poltrona3GFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona3Gselecionar);
+		poltrona4GFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona4Gselecionar);
+		poltrona5GFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona5Gselecionar);
+		poltrona6GFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona6Gselecionar);
+
+		poltrona1HFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona1Hselecionar);
+		poltrona2HFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona2Hselecionar);
+		poltrona3HFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona3Hselecionar);
+		poltrona4HFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona4Hselecionar);
+		poltrona5HFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona5Hselecionar);
+		poltrona6HFirebirdConnection=  this.conexao.selecionandoAssento();
+		poltronasSelecionadas.add(poltrona6Hselecionar);
+
 
 	}
 
@@ -1350,10 +1519,12 @@ public class JanelaEscolherPoltrona extends JFrame{
 	public void poltrona1AActionPerformed(MouseEvent evt){
 		if(poltrona1Aselecionar == 1){
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "1A", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona1AFirebirdConnection, "1A", this.cpf, this.destino)){
 					poltrona1A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
 					poltrona1A.setBounds(360, 300, 30, 30);
-					poltrona1Aselecionar = 2;
+					this.poltrona1Aselecionar = 2;
+
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -1363,7 +1534,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 		}else if(poltrona1Aselecionar == 2){
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(this.poltrona1AFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1371,6 +1542,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 			poltrona1A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1A.setBounds(360, 300, 30, 30);
 			poltrona1Aselecionar = 1;
+
 		}
 
 	}
@@ -1378,10 +1550,12 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona2Aselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "2A", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona2AFirebirdConnection, "2A", this.cpf, this.destino)){
 					poltrona2A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona2A.setBounds(360, 300, 30, 30);
+					poltrona2A.setBounds(390, 300, 30, 30);
 					poltrona2Aselecionar = 2;
+
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -1389,9 +1563,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona2Aselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(this.poltrona2AFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1399,6 +1573,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 			poltrona2A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona2A.setBounds(390, 300, 30, 30);
 			poltrona2Aselecionar = 1;
+
 		}
 
 	}
@@ -1406,10 +1581,12 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona3Aselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "3A", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona3AFirebirdConnection, "3A", this.cpf, this.destino)){
 					poltrona3A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona3A.setBounds(360, 300, 30, 30);
+					poltrona3A.setBounds(420, 300, 30, 30);
 					poltrona3Aselecionar = 2;
+
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -1417,9 +1594,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona3Aselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona3AFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1427,6 +1604,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 			poltrona3A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona3A.setBounds(420, 300, 30, 30);
 			poltrona3Aselecionar = 1;
+
 		}
 
 	}
@@ -1434,9 +1612,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona4Aselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "4A", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona4AFirebirdConnection, "4A", this.cpf, this.destino)){
 					poltrona4A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona4A.setBounds(360, 300, 30, 30);
+					poltrona4A.setBounds(480, 300, 30, 30);
 					poltrona4Aselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1445,9 +1624,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona4Aselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona4AFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1462,9 +1641,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona5Aselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "5A", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona5AFirebirdConnection, "5A", this.cpf, this.destino)){
 					poltrona5A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona5A.setBounds(360, 300, 30, 30);
+					poltrona5A.setBounds(510, 300, 30, 30);
 					poltrona5Aselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1473,9 +1653,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona5Aselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona5AFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1490,9 +1670,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona6Aselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "6A", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona6AFirebirdConnection, "6A", this.cpf, this.destino)){
 					poltrona6A.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona6A.setBounds(360, 300, 30, 30);
+					poltrona6A.setBounds(540, 300, 30, 30);
 					poltrona6Aselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1501,9 +1682,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona6Aselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona6AFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1520,9 +1701,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona1Bselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "1B", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona1BFirebirdConnection, "1B", this.cpf, this.destino)){
 					poltrona1B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona1B.setBounds(360, 300, 30, 30);
+					poltrona1B.setBounds(360, 330, 30, 30);
 					poltrona1Bselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1531,9 +1713,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona1Bselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona1BFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1549,9 +1731,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona2Bselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "2B", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona2BFirebirdConnection, "2B", this.cpf, this.destino)){
 					poltrona2B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona2B.setBounds(360, 300, 30, 30);
+					poltrona2B.setBounds(390, 330, 30, 30);
 					poltrona2Bselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1560,9 +1743,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona2Bselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona2BFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1578,9 +1761,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona3Bselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "3B", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona3BFirebirdConnection, "3B", this.cpf, this.destino)){
 					poltrona3B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona3B.setBounds(360, 300, 30, 30);
+					poltrona3B.setBounds(420, 330, 30, 30);
 					poltrona3Bselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1589,9 +1773,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona3Bselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona3BFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1607,9 +1791,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona4Bselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "4B", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona4BFirebirdConnection, "4B", this.cpf, this.destino)){
 					poltrona4B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona4B.setBounds(360, 300, 30, 30);
+					poltrona4B.setBounds(480, 330, 30, 30);
 					poltrona4Bselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1618,9 +1803,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona4Bselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona4BFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1636,9 +1821,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona5Bselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "5B", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona5BFirebirdConnection, "5B", this.cpf, this.destino)){
 					poltrona5B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona5B.setBounds(360, 300, 30, 30);
+					poltrona5B.setBounds(510, 330, 30, 30);
 					poltrona5Bselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1647,9 +1833,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona5Bselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona5BFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1665,9 +1851,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona6Bselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "6B", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona6BFirebirdConnection, "6B", this.cpf, this.destino)){
 					poltrona6B.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona6B.setBounds(360, 300, 30, 30);
+					poltrona6B.setBounds(540, 330, 30, 30);
 					poltrona6Bselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1676,9 +1863,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona6Bselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona6BFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1694,9 +1881,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona1Cselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "1C", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona1CFirebirdConnection, "1C", this.cpf, this.destino)){
 					poltrona1C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona1C.setBounds(360, 300, 30, 30);
+					poltrona1C.setBounds(360, 360, 30, 30);
 					poltrona1Cselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1705,9 +1893,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona1Cselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona1CFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1723,9 +1911,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona2Cselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "2C", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona2CFirebirdConnection, "2C", this.cpf, this.destino)){
 					poltrona2C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona2C.setBounds(360, 300, 30, 30);
+					poltrona2C.setBounds(390, 360, 30, 30);
 					poltrona2Cselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1734,9 +1923,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona2Cselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona2CFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1752,9 +1941,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona3Cselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "3C", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona3CFirebirdConnection, "3C", this.cpf, this.destino)){
 					poltrona3C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona3C.setBounds(360, 300, 30, 30);
+					poltrona3C.setBounds(420, 360, 30, 30);
 					poltrona3Cselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1763,9 +1953,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona3Cselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona3CFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1781,9 +1971,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona4Cselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "4C", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona4CFirebirdConnection, "4C", this.cpf, this.destino)){
 					poltrona4C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona4C.setBounds(360, 300, 30, 30);
+					poltrona4C.setBounds(480, 360, 30, 30);
 					poltrona4Cselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1792,9 +1983,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona4Cselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona4CFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1810,9 +2001,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona5Cselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "5C", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona5CFirebirdConnection, "5C", this.cpf, this.destino)){
 					poltrona5C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona5C.setBounds(360, 300, 30, 30);
+					poltrona5C.setBounds(510, 360, 30, 30);
 					poltrona5Cselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1821,9 +2013,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona5Cselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona5CFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1839,9 +2031,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona6Cselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "6C", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona6CFirebirdConnection, "6C", this.cpf, this.destino)){
 					poltrona6C.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona6C.setBounds(360, 300, 30, 30);
+					poltrona6C.setBounds(540, 360, 30, 30);
 					poltrona6Cselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1850,9 +2043,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona6Cselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona6CFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1868,9 +2061,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona1Dselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "1D", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona1DFirebirdConnection, "1D", this.cpf, this.destino)){
 					poltrona1D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona1D.setBounds(360, 300, 30, 30);
+					poltrona1D.setBounds(360, 390, 30, 30);
 					poltrona1Dselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1879,9 +2073,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona1Dselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona1DFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1897,9 +2091,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona2Dselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "2D", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona2DFirebirdConnection, "2D", this.cpf, this.destino)){
 					poltrona2D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona2D.setBounds(360, 300, 30, 30);
+					poltrona2D.setBounds(390, 390, 30, 30);
 					poltrona2Dselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1908,9 +2103,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona2Dselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona2DFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1926,9 +2121,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona3Dselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "3D", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona3DFirebirdConnection, "3D", this.cpf, this.destino)){
 					poltrona3D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona3D.setBounds(360, 300, 30, 30);
+					poltrona3D.setBounds(420, 390, 30, 30);
 					poltrona3Dselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1937,9 +2133,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona3Dselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona3DFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1955,9 +2151,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona4Dselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "4D", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona4DFirebirdConnection, "4D", this.cpf, this.destino)){
 					poltrona4D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona4D.setBounds(360, 300, 30, 30);
+					poltrona4D.setBounds(480, 390, 30, 30);
 					poltrona4Dselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1966,9 +2163,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona4Dselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona4DFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -1984,9 +2181,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona5Dselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "5D", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona5DFirebirdConnection, "5D", this.cpf, this.destino)){
 					poltrona5D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona5D.setBounds(360, 300, 30, 30);
+					poltrona5D.setBounds(510, 390, 30, 30);
 					poltrona5Dselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -1995,9 +2193,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona5Dselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona5DFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2013,9 +2211,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona6Dselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "6D", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona6DFirebirdConnection, "6D", this.cpf, this.destino)){
 					poltrona6D.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona6D.setBounds(360, 300, 30, 30);
+					poltrona6D.setBounds(540, 390, 30, 30);
 					poltrona6Dselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2024,9 +2223,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona6Dselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona6DFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2042,9 +2241,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona1Eselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "1E", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona1EFirebirdConnection, "1E", this.cpf, this.destino)){
 					poltrona1E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona1E.setBounds(360, 300, 30, 30);
+					poltrona1E.setBounds(360, 420, 30, 30);
 					poltrona1Eselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2053,9 +2253,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona1Eselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona1EFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2071,9 +2271,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona2Eselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "2E", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona2EFirebirdConnection, "2E", this.cpf, this.destino)){
 					poltrona2E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona2E.setBounds(360, 300, 30, 30);
+					poltrona2E.setBounds(390, 420, 30, 30);
 					poltrona2Eselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2082,9 +2283,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona2Eselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona2EFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2100,9 +2301,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona3Eselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "3E", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona3EFirebirdConnection, "3E", this.cpf, this.destino)){
 					poltrona3E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona3E.setBounds(360, 300, 30, 30);
+					poltrona3E.setBounds(420, 420, 30, 30);
 					poltrona3Eselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2111,9 +2313,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona3Eselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona3EFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2129,9 +2331,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona4Eselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "4E", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona4EFirebirdConnection, "4E", this.cpf, this.destino)){
 					poltrona4E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona4E.setBounds(360, 300, 30, 30);
+					poltrona4E.setBounds(480, 420, 30, 30);
 					poltrona4Eselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2140,9 +2343,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona4Eselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona4EFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2158,9 +2361,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona5Eselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "5E", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona5EFirebirdConnection, "5E", this.cpf, this.destino)){
 					poltrona5E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona5E.setBounds(360, 300, 30, 30);
+					poltrona5E.setBounds(510, 420, 30, 30);
 					poltrona5Eselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2169,9 +2373,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona5Eselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona5EFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2187,9 +2391,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona6Eselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "6E", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona6EFirebirdConnection, "6E", this.cpf, this.destino)){
 					poltrona6E.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona6E.setBounds(360, 300, 30, 30);
+					poltrona6E.setBounds(540, 420, 30, 30);
 					poltrona6Eselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2198,9 +2403,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona6Eselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona6EFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2216,9 +2421,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona1Fselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "1F", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona1FFirebirdConnection, "1F", this.cpf, this.destino)){
 					poltrona1F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona1F.setBounds(360, 300, 30, 30);
+					poltrona1F.setBounds(360, 450, 30, 30);
 					poltrona1Fselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2227,9 +2433,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona1Fselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona1FFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2246,9 +2452,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona2Fselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "2F", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona2FFirebirdConnection, "2F", this.cpf, this.destino)){
 					poltrona2F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona2F.setBounds(360, 300, 30, 30);
+					poltrona2F.setBounds(390, 450, 30, 30);
 					poltrona2Fselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2257,9 +2464,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona2Fselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona2FFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2275,9 +2482,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona3Fselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "3F", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona3FFirebirdConnection, "3F", this.cpf, this.destino)){
 					poltrona3F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona3F.setBounds(360, 300, 30, 30);
+					poltrona3F.setBounds(420, 450, 30, 30);
 					poltrona3Fselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2286,9 +2494,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona3Fselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona3FFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2304,9 +2512,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona4Fselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "4F", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona4FFirebirdConnection, "4F", this.cpf, this.destino)){
 					poltrona4F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona4F.setBounds(360, 300, 30, 30);
+					poltrona4F.setBounds(480, 450, 30, 30);
 					poltrona4Fselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2315,9 +2524,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona4Fselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona4FFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2333,9 +2542,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona5Fselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "5F", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona5FFirebirdConnection, "5F", this.cpf, this.destino)){
 					poltrona5F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona5F.setBounds(360, 300, 30, 30);
+					poltrona5F.setBounds(510, 450, 30, 30);
 					poltrona5Fselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2344,9 +2554,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona5Fselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona5FFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2362,9 +2572,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona6Fselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "6F", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona6FFirebirdConnection, "6F", this.cpf, this.destino)){
 					poltrona6F.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona6F.setBounds(360, 300, 30, 30);
+					poltrona6F.setBounds(540, 450, 30, 30);
 					poltrona6Fselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2373,9 +2584,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona6Fselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona6FFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2391,9 +2602,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona1Gselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "1G", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona1GFirebirdConnection, "1G", this.cpf, this.destino)){
 					poltrona1G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona1G.setBounds(360, 300, 30, 30);
+					poltrona1G.setBounds(360, 480, 30, 30);
 					poltrona1Gselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2402,9 +2614,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona1Gselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona1GFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2420,9 +2632,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona2Gselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "2G", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona2GFirebirdConnection, "2G", this.cpf, this.destino)){
 					poltrona2G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona2G.setBounds(360, 300, 30, 30);
+					poltrona2G.setBounds(390, 480, 30, 30);
 					poltrona2Gselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2431,9 +2644,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona2Gselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona2GFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2449,9 +2662,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona3Gselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "3G", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona3GFirebirdConnection, "3G", this.cpf, this.destino)){
 					poltrona3G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona3G.setBounds(360, 300, 30, 30);
+					poltrona3G.setBounds(420, 480, 30, 30);
 					poltrona3Gselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2460,9 +2674,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona3Gselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona3GFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2478,9 +2692,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona4Gselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "4G", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona4GFirebirdConnection, "4G", this.cpf, this.destino)){
 					poltrona4G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona4G.setBounds(360, 300, 30, 30);
+					poltrona4G.setBounds(480, 480, 30, 30);
 					poltrona4Gselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2489,9 +2704,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona4Gselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona4GFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2507,9 +2722,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona5Gselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "5G", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona5GFirebirdConnection, "5G", this.cpf, this.destino)){
 					poltrona5G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona5G.setBounds(360, 300, 30, 30);
+					poltrona5G.setBounds(510, 480, 30, 30);
 					poltrona5Gselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2518,9 +2734,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona5Gselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona5GFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2536,9 +2752,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona6Gselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "6G", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona6GFirebirdConnection, "6G", this.cpf, this.destino)){
 					poltrona6G.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona6G.setBounds(360, 300, 30, 30);
+					poltrona6G.setBounds(540, 480, 30, 30);
 					poltrona6Gselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2547,9 +2764,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona6Gselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona6GFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2565,9 +2782,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona1Hselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "1H", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona1HFirebirdConnection, "1H", this.cpf, this.destino)){
 					poltrona1H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona1H.setBounds(360, 300, 30, 30);
+					poltrona1H.setBounds(360, 510, 30, 30);
 					poltrona1Hselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2576,9 +2794,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona1Hselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona1HFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2594,9 +2812,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona2Hselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "2H", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona2HFirebirdConnection, "2H", this.cpf, this.destino)){
 					poltrona2H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona2H.setBounds(360, 300, 30, 30);
+					poltrona2H.setBounds(390, 510, 30, 30);
 					poltrona2Hselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2605,9 +2824,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona2Hselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona2HFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2623,9 +2842,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona3Hselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "3H", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona3HFirebirdConnection, "3H", this.cpf, this.destino)){
 					poltrona3H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona3H.setBounds(360, 300, 30, 30);
+					poltrona3H.setBounds(420, 510, 30, 30);
 					poltrona3Hselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2634,9 +2854,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona3Hselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona3HFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2652,9 +2872,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona4Hselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "4H", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona4HFirebirdConnection, "4H", this.cpf, this.destino)){
 					poltrona4H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona4H.setBounds(360, 300, 30, 30);
+					poltrona4H.setBounds(480, 510, 30, 30);
 					poltrona4Hselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2663,9 +2884,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona4Hselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona4HFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2681,9 +2902,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona5Hselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "5H", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona5HFirebirdConnection, "5H", this.cpf, this.destino)){
 					poltrona5H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona5H.setBounds(360, 300, 30, 30);
+					poltrona5H.setBounds(510, 510, 30, 30);
 					poltrona5Hselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2692,9 +2914,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona5Hselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona5HFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2710,9 +2932,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		if(poltrona6Hselecionar == 1){
 
 			try {
-				if(controle.selecionarPoltrona(this.firebirdConexao, "6H", this.cpf, this.destino)){
+
+				if(controle.selecionarPoltrona(this.poltrona6HFirebirdConnection, "6H", this.cpf, this.destino)){
 					poltrona6H.setIcon(new ImageIcon("img/poltronaSelecionada.png"));
-					poltrona6H.setBounds(360, 300, 30, 30);
+					poltrona6H.setBounds(540, 510, 30, 30);
 					poltrona6Hselecionar = 2;
 				}
 			} catch (SQLException e) {
@@ -2721,9 +2944,9 @@ public class JanelaEscolherPoltrona extends JFrame{
 			}
 
 		}else if(poltrona6Hselecionar == 2){
-			
+
 			try {
-				this.controle.desfazerSelecao(this.firebirdConexao);
+				this.controle.desfazerSelecao(poltrona6HFirebirdConnection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -2738,8 +2961,20 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 	private void jButton1ActionPerformed(ActionEvent evt) {
 
+
 		try {
-			this.controle.reservarPoltrona(this.firebirdConexao);
+
+			for(int i = 0; i < poltronasSelecionadas.size(); i++){
+
+				if(poltronasSelecionadas.get(i) == 2){
+					poltronasSelecionadas.
+					
+					this.controle.reservarPoltrona(this.firebirdConexao);
+
+				}
+			}
+
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -2748,6 +2983,14 @@ public class JanelaEscolherPoltrona extends JFrame{
 	}
 
 	private void jButton2ActionPerformed(ActionEvent evt) {
+
+		// fechando conexao quando retorna para a janela anterior pras cadeiras que estao "presas" serem liberadas.
+		try {
+			this.firebirdConexao.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem(this.conexao, this.cpf, this.senha);
 		janelaPassagem.setJanelaInicial();
 		janelaPassagem.setComponentes();
