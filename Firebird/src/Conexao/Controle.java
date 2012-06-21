@@ -188,14 +188,26 @@ public class Controle {
 
 		firebirdConexao.rollback();
 		
-		
-
 	}
 
-	public void reservarPoltrona(FirebirdConnection firebirdConexao) throws SQLException{
+	public void reservarPoltrona(ArrayList<FirebirdConnection> listaFirebirdConnection) throws SQLException{
 
-		firebirdConexao.commit();
+		for(int i =0; i < listaFirebirdConnection.size(); i++){
+			
+			listaFirebirdConnection.get(i).commit();
+			
+		}
 
+	}
+	
+	public void fecharVariasFirebirdConnection(ArrayList<FirebirdConnection> listaFirebirdConnection) throws SQLException{
+		
+		for(int i =0; i < listaFirebirdConnection.size(); i++){
+			
+			listaFirebirdConnection.get(i).close();
+			
+		}
+		
 	}
 
 }
