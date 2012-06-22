@@ -17,6 +17,7 @@ public class Controle {
 
 	}
 
+	/*Como o nome do metodo ja diz, eh utilizado para realizar uma busca no BD para verificar se o usuario existe*/
 	public Boolean logar(FirebirdConnection conexao, int cpf, int senha) throws SQLException{
 
 		boolean existePassageiro = false;
@@ -36,6 +37,7 @@ public class Controle {
 
 		ResultSet resultado = statement.executeQuery();
 
+		//next utilizado para direcionar o vetor para a primeira linha que no caso eh o retorno da consulta acima.
 		resultado.next();
 
 		if(resultado.getInt(1) == cpf){
@@ -50,12 +52,14 @@ public class Controle {
 
 	}
 
+	/*recebe como parametro uma FirebirdConnectio para que a mesma seja encerrada*/
 	public void sairDoSistema(FirebirdConnection conexao) throws SQLException{
 
 		conexao.close();
 
 	}
 
+	/*Cadastro de passageiro*/
 	public void cadastrarPassageiro(FirebirdConnection conexao, int cpf, String nome, String endereco, String senha) throws SQLException{
 
 		//conexao.setAutoCommit(false);
@@ -73,6 +77,7 @@ public class Controle {
 
 	}
 
+	/*Faz-se um select apenas de leitura sem lock , dos destinos para serem mostrados ao usuario*/
 	public Vector<String> lerDestinos(FirebirdConnection conexao) throws SQLException{
 
 		Vector<String> listaDestinos = new Vector<String>();
@@ -93,6 +98,7 @@ public class Controle {
 
 	}	
 
+	/*Leitura inicial das poltronas para verificar a situacao das mesmas, se estao reservadas, tb n usa lock.*/
 	public Boolean poltronaReservada(Conexao conexao, String destino, String numeroPoltrona) throws SQLException{
 
 		FirebirdConnection firebirdConexao = conexao.lendoAssentosInicialmente();
@@ -121,6 +127,8 @@ public class Controle {
 
 	}
 
+	/*Aqui eh verificado se o cpf cadastrado na tabela Reserva pra o destino e cadeira selecionados pelo usuario possui valor igual a 3.....
+	 * pois essa valor foi usado como default.....na verdade representa que a cadeira esta disponivel, se estiver realiza o update.*/
 	public Boolean selecionarPoltrona(FirebirdConnection firebirdConexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
 
 
@@ -166,14 +174,16 @@ public class Controle {
 
 	}
 
+	/*Metodo utilizado quando se quer retirar a selecao q foi selecionado pelo mesmo usuario ainda dentro da mesma sessao*/
 	public void desfazerSelecao(FirebirdConnection firebirdConexao) throws SQLException{
 
 		// apenas desfazer o update e o select, n eh necessario fechar a conexao por completa, e se fechar n vai ser possivel fazer uso da mesma pra selecionar
-		//outras cadeiras, enfim, ira dar erro
+		//outras cadeiras, enfim, ira dar erro pois iria se perder a conexao.
 		firebirdConexao.rollback();
 
 	}
 
+	/*Faz o commit nas cadeiras selecionados pelo usuario em questao, recebe como parametro a conexao de cada um*/
 	public void reservarPoltrona(ArrayList<FirebirdConnection> listaFirebirdConnection) throws SQLException{
 
 
@@ -187,7 +197,8 @@ public class Controle {
 
 
 	}
-
+	
+	/*No caso do usuario desistir da reserva e nao tirou a selecao das cadeiras, simplesmente fechou o programa, ou voltou pra selecionar um novo destino*/
 	public void fecharVariasFirebirdConnection(ArrayList<FirebirdConnection> listaFirebirdConnection) throws SQLException{
 
 		for(int i =0; i < listaFirebirdConnection.size(); i++){

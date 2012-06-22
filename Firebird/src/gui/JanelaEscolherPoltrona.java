@@ -102,7 +102,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 	JLabel poltrona5H;
 	JLabel poltrona6H;
 
-	/* Firebird Connection */
+	/* Firebird Connection, cada cadeira possui uma firebirdconnection pra controlar seu bloqueio ou liberacao */
 
 	FirebirdConnection poltrona1AFirebirdConnection;
 	FirebirdConnection poltrona2AFirebirdConnection;
@@ -162,6 +162,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 	/* Fim das Firebird Connection*/
 
+	/*Inteiros utilizados para determinar 1= descelecionado , 2= selecionado, 3=ja estava reservada*/
 	Integer poltrona1Aselecionar;
 	Integer poltrona2Aselecionar;
 	Integer poltrona3Aselecionar;
@@ -226,7 +227,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 	Conexao conexao;
 	Controle controle;
 	//ArrayList<Integer> poltronasSelecionadas;
-	ArrayList<FirebirdConnection> listaDeFirebirdConnection;
+	ArrayList<FirebirdConnection> listaDeFirebirdConnection;// Possui a lista de FirebirdConnectio que estao ativas ( igual a 2 )
 	FirebirdConnection firebirdConexaoLogin;
 	//FirebirdConnection firebirdConexao;
 	int cpf;
@@ -244,6 +245,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 		this.firebirdConexaoLogin = firebirdConexaoLogin;
 		//this.firebirdConexao = this.conexao.selecionandoAssento();
 
+		/*Iniciando as firebirdconnection com os parametro ideais para essa situacao em questao, uma para cada cadeira*/
 		poltrona1AFirebirdConnection= this.conexao.selecionandoAssento();
 
 		poltrona2AFirebirdConnection=  this.conexao.selecionandoAssento();
@@ -414,7 +416,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 		});		
 
 
-
+		/**
+		 * **Para toda cadeira inicialmente quando eh carregado a tela toda eh verificado se ja esta reservada no BD, se sim adquiri o valor 3 e eh carregada
+		 * a imagem de reservada, se n adquiri o valor 1 pra ser usado posteriormente.
+		 */
 		try {
 			if(!this.controle.poltronaReservada(this.conexao, this.destino, "1A")){
 				poltrona1A = new JLabel(new ImageIcon("img/poltronaVaga.png"));
@@ -1519,7 +1524,11 @@ public class JanelaEscolherPoltrona extends JFrame{
 		System.out.println("pegou");
 
 	}  
-
+	/**
+	 * 
+	 * Chamado o metodo para verificar se eh possivel selecionar a cadeira, se sim ele realiza o bloqueio, altera a variavel "poltrona1Aselecionar" para 2
+	 * e adiciona a FirebirdConnectino relativa a conexao dessa cadeira na listaDeDifrebirdConnection, o mesmo vale para todas as verificações a seguir.
+	 */
 	public void poltrona1AActionPerformed(MouseEvent evt){
 		if(poltrona1Aselecionar == 1){
 			try {
@@ -3257,9 +3266,10 @@ public class JanelaEscolherPoltrona extends JFrame{
 
 
 		try {
-
+			// chama o metodo para commitar as firebird connection que estao na lista, ou seja , das cadeiras selecionadas
 			this.controle.reservarPoltrona(this.listaDeFirebirdConnection);
 			
+			/*alterando o valor para 3, ou seja, a cadeira n esta mais apenas selecionada, foi possivel realizar o commit e reservar a mesma*/
 			if(this.poltrona1Aselecionar == 2){
 				this.poltrona1Aselecionar = 3;
 			}
@@ -3423,6 +3433,7 @@ public class JanelaEscolherPoltrona extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//Retorna para janela de escolha de destino, ou seja, eh necessario mantermos as 2 conexoes q ja vem sendo passadas de uma janela para outra.
 		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem(this.conexao, this.cpf, this.senha, this.firebirdConexaoLogin);
 		janelaPassagem.setJanelaInicial();
 		janelaPassagem.setComponentes();

@@ -128,7 +128,7 @@ public class JanelaEfetuarCadastro extends JFrame{
 				});	
 		
 	}
-	
+	/*Cadastro de usuario sem muitas restricoes, sem lock ....*/
 	private void jButton1ActionPerformed(ActionEvent evt, int cpf, int senha, String endereco, String nome) {
 		
 		String senhaString = String.valueOf(senha);

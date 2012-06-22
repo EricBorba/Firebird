@@ -104,12 +104,13 @@ public class JanelaEscolherPassagem extends JFrame{
 		});	
 
 
-		//Buscando os destinos existentes no BD
+		//Buscando os destinos existentes no BD usando a classe Conexao que veio como parametro da JanelaLogar
 		FirebirdConnection conexaoFirebird = conexao.lendoDestinos();
 		Vector<String> destinos = new Vector<String>();
 
 		try {
 			Controle controle = new Controle();
+			//Buscando os destinos na tabela Local 
 			destinos = controle.lerDestinos(conexaoFirebird);
 			conexaoFirebird.close();
 		} catch (SQLException e) {
@@ -140,6 +141,8 @@ public class JanelaEscolherPassagem extends JFrame{
 
 	private void jButton1ActionPerformed(ActionEvent evt) {
 
+		//Chamada a janela para que o usuario escolha a cadeira....da mesma forma que foi feito antes a Conexao ( drive ) e a firebirdconnection
+		// relacionada ao login continuam sendo repasssados.
 		JanelaEscolherPoltrona janela = new JanelaEscolherPoltrona(this.destinoSelecionado, this.conexao, this.cpf, this.senha, this.firebirdConexaoLogin);
 		janela.setJanelaInicial();
 		janela.setComponentes();
@@ -152,6 +155,7 @@ public class JanelaEscolherPassagem extends JFrame{
 	private void jButton2ActionPerformed(ActionEvent evt){
 		
 		try {
+			//Caso queira retornar pra tela de login a conexao do firebird relacionada ao login eh fechada
 			this.firebirdConexaoLogin.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -129,15 +129,19 @@ public class Janelalogar extends JFrame {
 	}
 	
 	private void jButton1ActionPerformed(ActionEvent evt, int cpf, int senha) {
-		// verifica no banco se existe o usuario se existir acessa sua parte no banco e entra
-		//na janela abaixo
+		
+		
+		
 		
 		Boolean existeCadastro = false;
+		//Carrega o drive e deixa disponivel os metodos de conexao que serao usados pois retornam FirebirdConnection
 		Conexao conexao = new Conexao();
+		//Usado metodo da classe Conexao que retorna uma firebirdconnection
 		FirebirdConnection conexaoFirebird = conexao.conexaoLogar();
 		
 		try {
 			Controle controle = new Controle();
+			//Com a firebirdconnection eh possivel agora fazer o login chamando o metodo da classe Controle.
 			existeCadastro = controle.logar(conexaoFirebird,cpf,senha);
 			
 			//Se a linha abaixo estiver descomentada ira permitir o uso do mesmo login e senha em aplicativos diferentes 
@@ -152,6 +156,8 @@ public class Janelalogar extends JFrame {
 		
 		if(existeCadastro){
 		
+		//A conexao do firebird aqui eh repassada apenas pra manter a mesma sempre disponivel caso queira encerrar e a "conexao" tb eh passado
+		// como parametro pois sera usado em todos afinal carregou o drive.	
 		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem(conexao, cpf, senha, conexaoFirebird);
 		janelaPassagem.setJanelaInicial();
 		janelaPassagem.setComponentes();

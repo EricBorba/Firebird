@@ -25,6 +25,7 @@ public class Conexao {
 		pass = "masterkey";
 
 		try {
+			// Carrega o drive
 			Class.forName(drive);
 			System.out.println("Drive Carregado");
 		} catch (ClassNotFoundException e1) {
@@ -33,14 +34,16 @@ public class Conexao {
 
 
 	}
-
+	
+	
+	/*Utilizado na primeira janela pra realizar o login*/
 	public FirebirdConnection conexaoLogar(){
 
 		FirebirdConnection connection = null;
 
 		try {
 
-
+			//Realiza uma conexao com o BD
 			connection = (FBConnection) DriverManager.getConnection( this.url, this.login, this.pass);
 
 			connection.setAutoCommit(false);
@@ -73,6 +76,7 @@ public class Conexao {
 
 	}
 	
+	/*Utilizado para fazer a conexao com o BD para cadastrar um usuario*/
 	public FirebirdConnection cadastrarPassageiro(){
 
 		FirebirdConnection connection = null;
@@ -119,6 +123,7 @@ public class Conexao {
 
 	}
 	
+	/*Utilizado na proxima janela apos o login com sucesso, eh lido os destinos disponiveis no BD e mostrados na janela*/
 	public FirebirdConnection lendoDestinos(){
 
 		FirebirdConnection connection = null;
@@ -153,7 +158,8 @@ public class Conexao {
 
 
 	}
-
+	
+	/*De acordo com o destino selecionado sera lido as cadeiras disponiveis para serem mostradas aos usuarios*/
 	public FirebirdConnection lendoAssentosInicialmente(){
 
 
@@ -201,7 +207,7 @@ public class Conexao {
 
 	}
 	
-	
+	/*Conexao criada para selecionar um assento, mesmo que n confirme depois*/
 	public FirebirdConnection selecionandoAssento(){
 
 
