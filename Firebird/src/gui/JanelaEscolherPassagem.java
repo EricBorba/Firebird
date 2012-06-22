@@ -42,16 +42,18 @@ public class JanelaEscolherPassagem extends JFrame{
 	JButton jButton2;
 	JComboBox jComboBox1;
 	Conexao conexao;
+	FirebirdConnection firebirdConexaoLogin;
 	String destinoSelecionado = null;
 	int cpf;
 	int senha;
 
 
-	public JanelaEscolherPassagem(Conexao conexao, int cpf, int senha){
+	public JanelaEscolherPassagem(Conexao conexao, int cpf, int senha, FirebirdConnection firebirdConexaoLogin){
 
 		this.conexao = conexao;
 		this.cpf = cpf;
 		this.senha = senha;
+		this.firebirdConexaoLogin = firebirdConexaoLogin;
 
 	}
 
@@ -138,7 +140,7 @@ public class JanelaEscolherPassagem extends JFrame{
 
 	private void jButton1ActionPerformed(ActionEvent evt) {
 
-		JanelaEscolherPoltrona janela = new JanelaEscolherPoltrona(this.destinoSelecionado, this.conexao, this.cpf, this.senha);
+		JanelaEscolherPoltrona janela = new JanelaEscolherPoltrona(this.destinoSelecionado, this.conexao, this.cpf, this.senha, this.firebirdConexaoLogin);
 		janela.setJanelaInicial();
 		janela.setComponentes();
 		janela.setComponentesAviao();
@@ -147,7 +149,14 @@ public class JanelaEscolherPassagem extends JFrame{
 		this.dispose();
 	}
 
-	private void jButton2ActionPerformed(ActionEvent evt) {
+	private void jButton2ActionPerformed(ActionEvent evt){
+		
+		try {
+			this.firebirdConexaoLogin.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Janelalogar janela = new Janelalogar();
 		janela.setJanelaInicial();

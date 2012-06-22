@@ -133,7 +133,8 @@ public class Controle {
 		}
 
 		statementReserva.close();
-		firebirdConexao.commit();
+		//firebirdConexao.commit();
+		firebirdConexao.close();
 		
 
 		return existeReserva;			
@@ -185,18 +186,23 @@ public class Controle {
 	}
 
 	public void desfazerSelecao(FirebirdConnection firebirdConexao) throws SQLException{
-
-		firebirdConexao.rollback();
+		
+		// poderia ser rollback
+		firebirdConexao.close();
 		
 	}
 
 	public void reservarPoltrona(ArrayList<FirebirdConnection> listaFirebirdConnection) throws SQLException{
 
+		
+		
 		for(int i =0; i < listaFirebirdConnection.size(); i++){
 			
 			listaFirebirdConnection.get(i).commit();
 			
 		}
+		
+		
 
 	}
 	

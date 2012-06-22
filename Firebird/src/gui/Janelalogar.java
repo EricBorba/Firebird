@@ -149,7 +149,7 @@ public class Janelalogar extends JFrame {
 		
 		if(existeCadastro){
 		
-		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem(conexao, cpf, senha);
+		JanelaEscolherPassagem janelaPassagem = new JanelaEscolherPassagem(conexao, cpf, senha, conexaoFirebird);
 		janelaPassagem.setJanelaInicial();
 		janelaPassagem.setComponentes();
 		janelaPassagem.addComponentes();
