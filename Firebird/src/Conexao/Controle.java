@@ -32,7 +32,7 @@ public class Controle {
 		statement.setInt(1, cpf);
 		statement.setString(2, senhaString);
 
-		//conexao.setAutoCommit(true);
+
 
 		ResultSet resultado = statement.executeQuery();
 
@@ -56,7 +56,7 @@ public class Controle {
 
 	}
 
-	public void cadastrarPassageiro(FirebirdConnection conexao, int cpf, String nome, String endereco, int senha) throws SQLException{
+	public void cadastrarPassageiro(FirebirdConnection conexao, int cpf, String nome, String endereco, String senha) throws SQLException{
 
 		//conexao.setAutoCommit(false);
 
@@ -64,11 +64,12 @@ public class Controle {
 		statement.setInt(1, cpf);
 		statement.setString(2, nome);
 		statement.setString(3, endereco);
-		statement.setInt(4, senha);
+		statement.setString(4, senha);
 
 		statement.executeUpdate();
 		statement.close();
 		conexao.commit();
+		conexao.close();
 
 	}
 
@@ -76,9 +77,9 @@ public class Controle {
 
 		Vector<String> listaDestinos = new Vector<String>();
 
-		conexao.setAutoCommit(true);
-		// A necessidade deste lock eh para nao permitir atualizacao do registro que esta lendo ( leitura suja )
-		PreparedStatement  statement = conexao.prepareStatement("SELECT L.nome_destino FROM LOCAL L WITH LOCK");
+		// Nao ha necessidade de uso do with lock neste caso pois no sistema proposto nao faz sentido bloquear leitura de destinos
+		// o que importa neste caso sao os parametros para definir seu comportamento no caso de alguma atualizacao no registro do destino.
+		PreparedStatement  statement = conexao.prepareStatement("SELECT L.nome_destino FROM LOCAL L");
 
 		ResultSet resultado = statement.executeQuery();
 
@@ -90,37 +91,16 @@ public class Controle {
 
 		return listaDestinos;
 
-	}
-
-	//por enquanto nao esta sendo usado
-	public ArrayList<String> lerAssentosReservados(FirebirdConnection conexao, String destino) throws SQLException{
-
-		ArrayList<String> listaAssentosReservados = new ArrayList<String>();
-
-		conexao.setAutoCommit(true);
-		// A necessidade deste lock eh para nao permitir atualizacao do registro que esta lendo ( leitura suja )
-		PreparedStatement  statement = conexao.prepareStatement("SELECT a.fk_numero FROM RESERVA a WHERE a.destino = ? WITH LOCK");
-		statement.setString(1, destino);
-		ResultSet resultado = statement.executeQuery();
-
-		while(resultado.next()){
-
-			listaAssentosReservados.add(resultado.getString(1));
-
-		}
-
-		return listaAssentosReservados;
-
-	}
+	}	
 
 	public Boolean poltronaReservada(Conexao conexao, String destino, String numeroPoltrona) throws SQLException{
 
-		FirebirdConnection firebirdConexao = conexao.leituraInicial();
+		FirebirdConnection firebirdConexao = conexao.lendoAssentosInicialmente();
 		Boolean existeReserva = true;
 
 		firebirdConexao.setAutoCommit(false);
 
-		PreparedStatement  statementReserva = firebirdConexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.fk_destino = ? WITH LOCK");		
+		PreparedStatement  statementReserva = firebirdConexao.prepareStatement("SELECT a.fk_cpf FROM RESERVA a WHERE a.fk_numero = ? AND a.fk_destino = ?");		
 		statementReserva.setString(1, numeroPoltrona);
 		statementReserva.setString(2, destino);
 		ResultSet resultado = statementReserva.executeQuery();
@@ -133,9 +113,9 @@ public class Controle {
 		}
 
 		statementReserva.close();
-		//firebirdConexao.commit();
+
 		firebirdConexao.close();
-		
+
 
 		return existeReserva;			
 
@@ -143,8 +123,8 @@ public class Controle {
 
 	public Boolean selecionarPoltrona(FirebirdConnection firebirdConexao, String numeroPoltrona,int cpf, String destino) throws SQLException{
 
-		
-		
+
+
 		firebirdConexao.setAutoCommit(false);
 		Boolean podeReservar = false;
 		//FirebirdSavepoint pontodeRecuperacao =  conexao.setFirebirdSavepoint();
@@ -155,10 +135,11 @@ public class Controle {
 		statementReserva.setString(2, destino);
 		ResultSet resultado = statementReserva.executeQuery();
 
-		//colocar aqui a condicao para executar o passo abaixo apenas se o cpf retornado na query acima for igual ao que representa disponibilidade.
+
 
 		while(resultado.next()){
 
+			//executar o passo abaixo apenas se o cpf retornado na query acima for igual ao que representa disponibilidade.
 			if(resultado.getInt(1) == 3){
 
 				podeReservar = true;
@@ -168,9 +149,9 @@ public class Controle {
 				statementUpdate.setString(2, numeroPoltrona);
 				statementUpdate.setString(3, destino);
 				statementUpdate.executeUpdate();
-				//Verificar se Ž poss’vel realmente executar esse close(), afinal ele pode acabar liberando a cadeira para outro sistema.
+
 				statementUpdate.close();
-				//statementReserva.close();	
+
 
 			}
 			/*else{
@@ -179,41 +160,42 @@ public class Controle {
 			}*/
 
 		}
-		
+
 
 		return podeReservar;
 
 	}
 
 	public void desfazerSelecao(FirebirdConnection firebirdConexao) throws SQLException{
-		
-		// poderia ser rollback
-		firebirdConexao.close();
-		
+
+		// apenas desfazer o update e o select, n eh necessario fechar a conexao por completa, e se fechar n vai ser possivel fazer uso da mesma pra selecionar
+		//outras cadeiras, enfim, ira dar erro
+		firebirdConexao.rollback();
+
 	}
 
 	public void reservarPoltrona(ArrayList<FirebirdConnection> listaFirebirdConnection) throws SQLException{
 
-		
-		
+
+
 		for(int i =0; i < listaFirebirdConnection.size(); i++){
-			
+
 			listaFirebirdConnection.get(i).commit();
-			
+
 		}
-		
-		
+
+
 
 	}
-	
+
 	public void fecharVariasFirebirdConnection(ArrayList<FirebirdConnection> listaFirebirdConnection) throws SQLException{
-		
+
 		for(int i =0; i < listaFirebirdConnection.size(); i++){
-			
+
 			listaFirebirdConnection.get(i).close();
-			
+
 		}
-		
+
 	}
 
 }

@@ -101,7 +101,7 @@ public class JanelaEfetuarCadastro extends JFrame{
 				endereco.setBounds(30, 280, 250, 20);
 				endereco.setFont(new Font("Comic Sans MS", 1, 15));
 				
-				aviao = new JLabel(new ImageIcon("Desenhos/aviaocadastro.png"));		
+				aviao = new JLabel(new ImageIcon("img/aviaocadastro.png"));		
 				aviao.setBounds(30, 20, 130, 100);
 				
 				this.jButton1 = new JButton("EFETUAR CADASTRO");
@@ -130,12 +130,14 @@ public class JanelaEfetuarCadastro extends JFrame{
 	}
 	
 	private void jButton1ActionPerformed(ActionEvent evt, int cpf, int senha, String endereco, String nome) {
+		
+		String senhaString = String.valueOf(senha);
 		Conexao conexao = new Conexao();
-		FirebirdConnection conexaoFirebird = conexao.leituraInicial();
+		FirebirdConnection conexaoFirebird = conexao.cadastrarPassageiro();
 		
 		try {
 			Controle controle = new Controle();
-			controle.cadastrarPassageiro(conexaoFirebird, cpf, nome, endereco, senha);
+			controle.cadastrarPassageiro(conexaoFirebird, cpf, nome, endereco, senhaString);
 		} catch (SQLException e) {
 			// Erro com relacao ao SQL, exemplo: passageiro ja existente
 			e.printStackTrace();
@@ -144,7 +146,12 @@ public class JanelaEfetuarCadastro extends JFrame{
 	}
 	
 	private void jButton2ActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
+		Janelalogar janela = new Janelalogar();
+		janela.setJanelaInicial();
+		janela.setComponentes();
+		janela.addComponentes();
+		janela.setVisible(true);
+		this.dispose();
 		
 	}
   

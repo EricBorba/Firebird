@@ -1535,6 +1535,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 
@@ -1544,11 +1546,13 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				
 			}
 			poltrona1A.setIcon(new ImageIcon("img/poltronaVaga.png"));
 			poltrona1A.setBounds(360, 300, 30, 30);
 			poltrona1Aselecionar = 1;
 			this.listaDeFirebirdConnection.remove(poltrona1AFirebirdConnection);
+			
 		//	this.poltronasSelecionadas.remove(poltrona1Aselecionar);
 
 		}
@@ -1570,6 +1574,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona2Aselecionar == 2){
@@ -1605,6 +1611,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona3Aselecionar == 2){
@@ -1639,6 +1647,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona4Aselecionar == 2){
@@ -1672,6 +1682,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona5Aselecionar == 2){
@@ -1705,6 +1717,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona6Aselecionar == 2){
@@ -1740,6 +1754,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona1Bselecionar == 2){
@@ -1774,6 +1790,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona2Bselecionar == 2){
@@ -1808,6 +1826,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona3Bselecionar == 2){
@@ -1842,6 +1862,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona4Bselecionar == 2){
@@ -1876,6 +1898,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona5Bselecionar == 2){
@@ -1910,6 +1934,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona6Bselecionar == 2){
@@ -1944,6 +1970,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona1Cselecionar == 2){
@@ -1978,6 +2006,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona2Cselecionar == 2){
@@ -2012,6 +2042,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona3Cselecionar == 2){
@@ -2046,6 +2078,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona4Cselecionar == 2){
@@ -2080,6 +2114,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona5Cselecionar == 2){
@@ -2114,6 +2150,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona6Cselecionar == 2){
@@ -2148,6 +2186,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona1Dselecionar == 2){
@@ -2182,6 +2222,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona2Dselecionar == 2){
@@ -2216,6 +2258,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona3Dselecionar == 2){
@@ -2250,6 +2294,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona4Dselecionar == 2){
@@ -2284,6 +2330,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona5Dselecionar == 2){
@@ -2318,6 +2366,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona6Dselecionar == 2){
@@ -2352,6 +2402,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona1Eselecionar == 2){
@@ -2386,6 +2438,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona2Eselecionar == 2){
@@ -2420,6 +2474,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona3Eselecionar == 2){
@@ -2454,6 +2510,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona4Eselecionar == 2){
@@ -2488,6 +2546,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona5Eselecionar == 2){
@@ -2522,6 +2582,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona6Eselecionar == 2){
@@ -2556,6 +2618,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona1Fselecionar == 2){
@@ -2591,6 +2655,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona2Fselecionar == 2){
@@ -2625,6 +2691,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona3Fselecionar == 2){
@@ -2659,6 +2727,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona4Fselecionar == 2){
@@ -2693,6 +2763,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona5Fselecionar == 2){
@@ -2727,6 +2799,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona6Fselecionar == 2){
@@ -2761,6 +2835,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona1Gselecionar == 2){
@@ -2795,6 +2871,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona2Gselecionar == 2){
@@ -2829,6 +2907,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona3Gselecionar == 2){
@@ -2863,6 +2943,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona4Gselecionar == 2){
@@ -2897,6 +2979,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona5Gselecionar == 2){
@@ -2930,6 +3014,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona6Gselecionar == 2){
@@ -2964,6 +3050,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona1Hselecionar == 2){
@@ -2998,6 +3086,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona2Hselecionar == 2){
@@ -3032,6 +3122,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona3Hselecionar == 2){
@@ -3066,6 +3158,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona4Hselecionar == 2){
@@ -3100,6 +3194,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona5Hselecionar == 2){
@@ -3134,6 +3230,8 @@ public class JanelaEscolherPoltrona extends JFrame{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				JanelaDeErro janelaErro = new JanelaDeErro("Block - Try Again");
+				janelaErro.setVisible(true);
 			}
 
 		}else if(poltrona6Hselecionar == 2){

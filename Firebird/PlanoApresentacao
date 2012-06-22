@@ -1,2 +1,14 @@
 - Na hora do login mostrar que não é possível 2 aplicacoes diferentes logar ao mesmo tempo com o mesmo cpf ( ou não, se descomentar a linha que permite que a conexao seja fechada )
-- Mostrar que na tela onde mostra os destinos a conexão tem que ser fechada senão outras pessoas não poderão visualizar as cadeiras do mesmo destino em questão.
+  Ou seja, abrir 2 aplicacoes diferentes e mostrar que quando deslogar de uma a outra conseguirá logar.
+
+- Na leitura de destinos mostrar que nao eh necessario o lock, afinal vc esta lendo apenas destinos, e caso alguma alteracao tenha q ser feita nesses destinos
+  a leitura esta configurada para aguardar o commit no caso de ela ter iniciado e existir um update em andamento. ( mostrar os parametros ).
+  
+- Na leitura inicial dos assentos reservados logo após selecionar um destino mostrar seus parametros e que a mesma n bloqueia a leitura das cadeiras
+do mesmo destino por uma outra pessoa.
+
+- Mostrar o acesso das cadeiras de um determinado destino tendo outro sistema aberto com o mesmo destino, porém com uma cadeira selecionada ( mas n commitada )
+
+- Mostrar que tendo uma cadeira selecionada, vc n consegue selecionar a mesma em outro sistema.
+
+- Mostrar que os 2 estando abertos, cadastrando a reserva e retornando pra pegar a atualizacao

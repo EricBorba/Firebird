@@ -100,7 +100,7 @@ public class Janelalogar extends JFrame {
 				senha.setBounds(75, 175, 150, 20);
 				senha.setFont(new Font("Comic Sans MS", 1, 20));
 				
-				aviao = new JLabel(new ImageIcon("Desenhos/desenhoaviao.png"));		
+				aviao = new JLabel(new ImageIcon("img/desenhoaviao.png"));		
 				aviao.setBounds(80, 20, 130, 77);
 				
 				this.jButton1 = new JButton("ENTRAR");
@@ -134,7 +134,7 @@ public class Janelalogar extends JFrame {
 		
 		Boolean existeCadastro = false;
 		Conexao conexao = new Conexao();
-		FirebirdConnection conexaoFirebird = conexao.leituraInicial();
+		FirebirdConnection conexaoFirebird = conexao.conexaoLogar();
 		
 		try {
 			Controle controle = new Controle();
@@ -145,6 +145,9 @@ public class Janelalogar extends JFrame {
 		} catch (SQLException e) {
 			// Erro com relacao ao SQL
 			e.printStackTrace();
+			JanelaDeErro janelaErro = new JanelaDeErro("Usuario nao Existente");
+			janelaErro.setVisible(true);
+			
 		}
 		
 		if(existeCadastro){
@@ -155,10 +158,6 @@ public class Janelalogar extends JFrame {
 		janelaPassagem.addComponentes();
 		janelaPassagem.setVisible(true);
 		this.dispose();
-		}else{
-			
-			// Janela dizendo que o usu‡rio n‹o est‡ cadastrado
-			
 		}
 		
 	}

@@ -105,7 +105,7 @@ public class JanelaEscolherPassagem extends JFrame{
 
 
 		//Buscando os destinos existentes no BD
-		FirebirdConnection conexaoFirebird = conexao.leituraInicial();
+		FirebirdConnection conexaoFirebird = conexao.lendoDestinos();
 		Vector<String> destinos = new Vector<String>();
 
 		try {
